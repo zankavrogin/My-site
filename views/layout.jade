@@ -1,0 +1,97 @@
+doctype html
+html
+  head
+    title #{title} - Nathan Zankich
+    link(rel='stylesheet', href='/styles/main.css')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+    
+    
+    
+  div.back2 
+  div.back
+    .shadow
+      
+  header
+    h1 Nathan Zankich 
+  nav
+    ul.nav 
+      li.nav
+        //a.nav(href='/') 
+        a.nav(href='#portfolio', rel='') Portfolio
+        a.nav(href='/about') About
+        
+    
+  body
+    != body
+  
+  script.
+      $(window).bind('scroll', function() {
+           if ($(window).scrollTop() > 150) {
+             $('ul.nav').addClass('fixed');
+                $(this).removeClass('nav');
+            }
+           else {
+               $('ul.nav').removeClass('fixed');
+           }
+      });
+      
+      $(document).ready(function(){
+        $('a[href^="#"]').on('click',function (e) {
+            e.preventDefault();
+      
+            var target = this.hash,
+            $target = $(target);
+      
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 900, 'swing', function () {
+                window.location.hash = target;
+            });
+        });
+      });
+      
+      
+      $(document).ready(function() {
+          var s = $("#portfolio"); 
+          var pos = s.position();                   
+          $(window).scroll(function() {
+              var windowpos = $(window).scrollTop();
+              if (windowpos >= pos.top) {
+                  s.addClass("stick");
+              } else {
+                  s.removeClass("stick");
+              }
+          });
+      });
+      
+      $(window).scroll(function() {
+          var el = $('.back');    
+          var offset = el.offset();  
+          var opacity = ( (offset.top - el.height() ) / 1250 ) * -1;
+          $('.back').css('opacity', opacity );
+      });
+      
+      $(document).ready(function () {
+          $("ul.nav").hide().slideDown(1000).fadeIn(1000);
+      });
+      
+      jQuery(document).ready(function ($) {
+          //Set default open/close settings
+          var divs=$('.art>div').hide(); //Hide/close all containers
+      
+          var h2s=$('.art>h3').click(function () {
+              h2s.not(this).removeClass('active')
+              $(this).toggleClass('active')
+              divs.not($(this).next()).slideUp()
+              $(this).next().slideToggle()
+              return false; //Prevent the browser jump to the link anchor
+      
+          });
+      
+      
+      });
+  
+   
+  
+    
