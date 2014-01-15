@@ -55,7 +55,7 @@ div.back2{
   display: block;
   z-index: -10;
   background-size: 100%;
-  background-image: url('../images/head2.png');
+  background-image: url('../images/head4.png');
   background-attachment: fixed;
 }
 
@@ -80,7 +80,7 @@ h1{
 }
 
 h2{
-  font-size: 120px;
+  font-size:  81px;
   font-family: Orbitron;
   font-weight: 700;
   color: BLACK;//desaturate(lighten(#003333, 15%), 85%);
@@ -106,7 +106,10 @@ h2{
 
 ul.nav{
     //height: 0;
-    margin: 125px 32px 0 0;
+    margin: 125px auto 0;
+    position: absolute;
+    left: 0px;
+    right: 40px;
 }
 ul.nav:after {
     content: "";
@@ -183,7 +186,7 @@ a.nav:first-child{
   overflow: hidden;
   top: 1349px;
   width: 100%;
-  height: 150px;
+  height: 100px;
   margin: 0 auto;
 }
 
@@ -207,10 +210,10 @@ a.nav:first-child{
 .overlay{
   top: 0;
   width: 100%;
-  height: 150px;
+  height: 100px;
   display: block;
   position: relative;
-  background-color: rgba(63, 63, 50, 0.9);
+  background-color: rgba(63, 63, 50, 0.4);
   //.gradient(@default: rgba(63, 63, 43, 0.1), @start: rgba(63, 63, 43, 0.6), @stop: rgba(63, 63, 43, 0.8));
   z-index:-1;
 }  
@@ -221,6 +224,7 @@ a.nav:first-child{
   //background-color: black;
   margin: -120px auto 0;
   position: relative;
+  top: 1519px;
 }
 
 .main-content{
@@ -246,7 +250,7 @@ a.nav:first-child{
 
 article.main{
   background-color: desaturate(lighten(#d9cb9e, 22%), 20%);
-  top: 944px;
+  //top: 894px;
   width: 100%;
   margin: 0 auto;
   height: 1500px;
@@ -260,11 +264,11 @@ article.main{
   position: relative;
   display: block;
   z-index: 11;
-  top: -1px;
+  max-height: 135px;
 }
 
 p.main{
-  font: normal 50px/60px vollkorn;
+  font: normal 30px/60px vollkorn;
   top: 0;
   text-align: center;
 }
@@ -277,7 +281,7 @@ section.work{
 }
 
 .art{
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -293,11 +297,32 @@ section.work{
     z-index: inherit;
   overflow: hidden;
 }
-.block{
+
+
+figure.easyzoom{
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: inherit;
+  padding-left: 49%;
+  left: -376px;
+}
+
+
+.easyzoom{
+  float: left;
   padding:20px;
 }
 
-h3{
+a.small{
+  
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  max-width:768px;
+}
+
+figure{
   width: 23%;
   margin: 0 1%;
   height: 100%;
@@ -325,14 +350,23 @@ a.title{
   text-indent: -9999px;
   
   &:hover{
-    text-indent: 0;
+  cursor: pointer;
+  -webkit-filter: grayscale(50%);
   }
 }
 
  img.small{
-   width: 90%;
-   max-width: 300px;
-   position:absolute;
+  width: 23%;
+  margin: 0 1%;
+  height: 100%;
+  display: block;
+  float: left;
+  position: relative;
+  z-index: 15;
+  top: -23px;
+   //width: 90%;
+   max-width: 200px;
+   position: relative;
    &:hover{
   cursor: pointer;
   -webkit-filter: grayscale(50%);

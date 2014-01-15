@@ -5,6 +5,7 @@ html
     link(rel='stylesheet', href='/styles/main.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+    script(type='text/javascript', src='../javascript/easyzoom.js')
     
     
     
@@ -20,12 +21,20 @@ html
         //a.nav(href='/') 
         a.nav(href='#portfolio', rel='') Portfolio
         a.nav(href='/about') About
+        a.nav(href='/work') work
         
     
   body
     != body
   
   script.
+      
+      // Instantiate EasyZoom plugin
+      var $easyzoom = $('.easyzoom').easyZoom();
+
+      // Get the instance API
+      var api = $easyzoom.data('easyZoom');
+  
       $(window).bind('scroll', function() {
            if ($(window).scrollTop() > 150) {
              $('ul.nav').addClass('fixed');
@@ -68,7 +77,7 @@ html
       $(window).scroll(function() {
           var el = $('.back');    
           var offset = el.offset();  
-          var opacity = ( (offset.top - el.height() ) / 1250 ) * -1;
+          var opacity = ( (offset.top - el.height() ) / 1000 ) * -1;
           $('.back').css('opacity', opacity );
       });
       
@@ -80,7 +89,7 @@ html
           //Set default open/close settings
           var divs=$('.art>div').hide(); //Hide/close all containers
       
-          var h2s=$('.art>h3').click(function () {
+          var h2s=$('.art>img.small').click(function () {
               h2s.not(this).removeClass('active')
               $(this).toggleClass('active')
               divs.not($(this).next()).slideUp()
@@ -91,6 +100,7 @@ html
       
       
       });
+      
   
    
   

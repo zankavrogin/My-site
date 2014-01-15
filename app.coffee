@@ -1,27 +1,28 @@
 # Main application file
 #   Kicks off the whole show
 #
-app      = (require 'express')()
+#app      = (require 'express')()
+
+express = require("express")
+
+app      = express()
 port     = process.env.PORT or 8080
 mongoose = require 'mongoose'
 settings = require './lib/settings'
 errors   = require './lib/error-handler'
 
 
-console.log "\n\nStarting in mode:", app.settings.env
+#console.log "\n\nStarting in mode:", app.settings.env
 
-app.config = process.env
+#app.config = process.env
 
 mongoose.connection.on 'open', ()->
-
 
   # Configuration
   settings.boot(app);
 
-
   # Error Handler
   errors.boot(app)
-
 
   # Bootstrap models
   app.models = {}
@@ -46,5 +47,5 @@ mongoose.connection.on 'open', ()->
   server = app.listen port
   console.log "Express-Boilerplate started on port #{port}"
 
-
-mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'
+#mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'
+mongoose.connect "mongodb://127.0.0.1/test"
