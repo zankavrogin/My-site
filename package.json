@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "coffee-script": "~1.6.3",
-    "poet": "0.2.9",
+    "poet": "*",
     "connect-less": "*",
     "connect-mongodb": "*",
     "everyauth": "~0.4.5",

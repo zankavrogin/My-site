@@ -1,36 +1,180 @@
+extends layout
 
-div#portfolio.slide 
-  h2 Work 
-  div.head
-    div.overlay 
+append head
+  script(type='text/javascript', src='../javascript/jquery.fancybox.js')
+  link(rel='stylesheet', href='/styles/jquery.fancybox.css')
+
+block work
+    div.gradient
+      div.sub
+    nav.bar
+      ul.nav
+          li.nav 
+            a.brand(href='/') Blog
+              .brand-gradient
+          li.nav 
+            a.brand(href='/work') Work
+              .brand-gradient.two
+      h1.expand Paintings
+      ul.navi.nav-list
+        li.tag.oil 
+            a Oil
+        li.tag.acrylic 
+            a Acrylic
+        li.tag.charcoal 
+            a Charcoal
+        li.tag.digital 
+            a Digital
+        li.tag.watercolor 
+            a Watercolor  
+
+   
+    .wrap
+      .header
+        h2.design.radio RADIO
+        h2.design SCHIZO
+      .row
+        .blur
+        article.main
+          p.main.
+            I am a college student interested in art, music, and web developement/design. Through my art I try to bring dream-like imagery into reality.
+          .art
+            a.fancybox.acrylic(href='../images/Ian-Curtis.jpg' title="Ian Curtis")
+              .image-hover.a
+                h2 Ian Curtis
+              img.small(src='../images/Ian-Curtis-thumb.jpg', alt='')
+            a.fancybox.oil(href='../images/no-control.jpg' title="No Control")
+              .image-hover.b
+                h2 No Control
+              img.small(src='../images/no-control-thumb.jpg', alt='')
+            a.fancybox.digital(href='../images/russian-stamp.jpg' title="Russian Stamp")
+              .image-hover.c
+                h2 Russian Stamp
+              img.small(src='../images/russian-stamp-thumb.jpg', alt='')
+          .art
+            a.fancybox.digital(href='../images/self-21.jpg' title="Self-Portrait")
+              .image-hover.d
+                h2 Self-Portrait
+              img.small(src='../images/self-thumb.jpg', alt='')
+            a.fancybox.charcoal(href='../images/still-life-with-bunny.jpg' title="Still Life with Rabbit")
+              .image-hover.e
+                h2 Still Life With Rabbit
+              img.small(src='../images/still-life-with-bunny-thumb.jpg', alt='')
+            a.fancybox.oil(href='../images/window.jpg' title="The Window")
+              .image-hover.f
+                h2 The Window
+              img.small(src='../images/window-thumb.jpg', alt='')
+          .art
+            a.fancybox.oil(href='../images/transduction-of-past-present-and-future.jpg' title="Transduction of Past Present and Future")
+              .image-hover.g
+                h2 Transduction of Past Present and Future
+              img.small(src='../images/transduction-of-past-present-and-future-thumb.jpg', alt='')
+            a.fancybox.watercolor(href='../images/watercolor.jpg' title="Lucidity")
+              .image-hover.h
+                h2 Lucidity
+              img.small(src='../images/watercolor-thumb.jpg', alt='')
+            a.fancybox.charcoal(href='../images/still-life-rifle.jpg' title="Mosin Nagant")
+              .image-hover.h
+                h2 Mosin Nagant
+              img.small(src='../images/still-life-with-rifle-thumb.jpg', alt='')
 
 
-.container
-  article.main 
-    img.triangle(src='../images/triangle-2.png', alt='')
-    p.main 
-      | I like to do stuff sometimes, here's some of that stuff.
-    section.work
-      .art
-        img.small(src='../images/preview_03.jpg', alt='')
-        .figure
-          figure.easyzoom
-            a.small(href='../images/trans2.jpg')
-              img.tranduction(src='../images/trans-small.jpg', alt'')
-        img.small(src='../images/preview_05.jpg', alt='')
-        .figure
-          figure.easyzoom
-            a.small(href='../images/trans2.jpg')
-              img.window(src='../images/the-window.jpg', alt='')
-        img.small(src='../images/preview_07.jpg', alt='')
-        .figure
-          figure.easyzoom
-            a.small(href='../images/trans2.jpg')
-              img.no(src='../images/no.jpg', alt='')
-        img.small(src='../images/preview_09.jpg', alt='')
-        .figure
-           figure.easyzoom
-            a.small(href='../images/trans2.jpg')
-            img.dream(src='../images/watercolor.jpg', alt='')
-             
-           
+
+
+
+block script          
+  script.
+    (function(e){e.fn.hoverIntent=function(t,n,r){var i={interval:100,sensitivity:7,timeout:0};if(typeof t==="object"){i=e.extend(i,t)}else if(e.isFunction(n)){i=e.extend(i,{over:t,out:n,selector:r})}else{i=e.extend(i,{over:t,out:t,selector:n})}var s,o,u,a;var f=function(e){s=e.pageX;o=e.pageY};var l=function(t,n){n.hoverIntent_t=clearTimeout(n.hoverIntent_t);if(Math.abs(u-s)+Math.abs(a-o)<i.sensitivity){e(n).off("mousemove.hoverIntent",f);n.hoverIntent_s=1;return i.over.apply(n,[t])}else{u=s;a=o;n.hoverIntent_t=setTimeout(function(){l(t,n)},i.interval)}};var c=function(e,t){t.hoverIntent_t=clearTimeout(t.hoverIntent_t);t.hoverIntent_s=0;return i.out.apply(t,[e])};var h=function(t){var n=jQuery.extend({},t);var r=this;if(r.hoverIntent_t){r.hoverIntent_t=clearTimeout(r.hoverIntent_t)}if(t.type=="mouseenter"){u=n.pageX;a=n.pageY;e(r).on("mousemove.hoverIntent",f);if(r.hoverIntent_s!=1){r.hoverIntent_t=setTimeout(function(){l(n,r)},i.interval)}}else{e(r).off("mousemove.hoverIntent",f);if(r.hoverIntent_s==1){r.hoverIntent_t=setTimeout(function(){c(n,r)},i.timeout)}}};return this.on({"mouseenter.hoverIntent":h,"mouseleave.hoverIntent":h},i.selector)}})(jQuery)
+
+
+
+
+    $(window).bind('scroll', function() {
+         if ($(window).scrollTop() > 330) {
+           $('nav.bar').addClass('out').removeClass('bar');
+          }
+         else {
+             $('nav').removeClass('out').addClass('bar');
+         }
+    });
+
+    $(window).scroll(function() {
+        var el = $('.header');    
+        var offset = el.offset();  
+        var opacity = ( ((offset.top * 2.3) - el.height() -100) /1500 ) * -1.2;
+        $('.header').css('opacity', opacity );
+    });
+
+    $(document).ready(function() {
+        $(".fancybox").fancybox();
+     });
+
+    
+
+      
+
+     $(".image-hover").hoverIntent({    
+        sensitivity: 5, // number = sensitivity threshold (must be 1 or higher)    
+        interval: 50, // number = milliseconds for onMouseOver polling interval    
+        timeout: 1000, // number = milliseconds delay before onMouseOut    
+       over:function(){
+           $(this).addClass("transition");
+        },
+       out: function(){
+            className = this.className.split(' ');
+            for (var i = 0; i < className.length; i+=1) {
+            if (className[i].indexOf('') >= 0) {
+              className = ("." + className[1]);
+              }
+            };
+            $(className).addClass("transition-out");
+            var delay = setTimeout(function(){
+            $(className).removeClass("transition");
+            $(className).removeClass("transition-out");
+            }, 300);
+        }
+    });
+
+    
+
+    $('h1.expand').click(function(){
+        $('ul.navi>li.tag').toggleClass('children');
+        }
+      );
+
+    $("li.tag").addClass('hide');
+
+    $('li.oil').click(function(){
+       $('.art').children().hide();
+       $('a.oil').show();
+       }
+    );
+
+    $('li.acrylic').click(function(){
+       $('.art').children().hide();
+       $('a.acrylic').show();
+       }
+    );
+
+    $('li.charcoal').click(function(){
+       $('.art').children().hide();
+       $('a.charcoal').show();
+       }
+    );
+
+    $('li.digital').click(function(){
+       $('.art').children().hide();
+       $('a.digital').show();
+       }
+    );
+
+    $('li.watercolor').click(function(){
+       $('.art').children().hide();
+       $('a.watercolor').show();
+       }
+    );
+
+     $('h1.expand').click(function(){
+       $('.art').children().show();
+       }
+    );
