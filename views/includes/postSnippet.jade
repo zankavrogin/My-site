@@ -1,6 +1,6 @@
 div.post
   h1
-    a(href=post.url)
+    a.capitalize(href=post.url)
       = post.title
   span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
   div.content

@@ -37,7 +37,7 @@ mongoose.connection.on 'open', ()->
   controller_files.forEach (file) ->
     (require controller_loc + '/' + file)(app)
 
-
+  
 
   errors.setup404(app)
 

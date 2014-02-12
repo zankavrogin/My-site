@@ -1,4 +1,5 @@
 express   = require 'express'
+lessMiddleware = require 'less-middleware'
 everyauth = require 'everyauth'
 partials  = require 'express-partials'
 fs        = require 'fs'
@@ -20,6 +21,8 @@ exports.boot = (app) ->
     app.set 'views', __dirname + './../views'
 
     app.set 'view engine', 'jade'
+    
+    
 
     app.use express.bodyParser()
 
@@ -30,11 +33,12 @@ exports.boot = (app) ->
       res.header("X-powered-by", "Sharks")
       next()
     
-    app.use require('connect-less')(
-      src: __dirname + '/../public/'
+    app.use lessMiddleware(
+      src: __dirname + '/../public'
       compress: true
-      yuicompress: true
     )
+    
+    app.use express.static __dirname + './../public'
     
     app.use require('./coffee-compile')(
       force: true
@@ -44,7 +48,6 @@ exports.boot = (app) ->
 
     app.use express.compress()
 
-    app.use express.static __dirname + './../public'
 
     app.use express.cookieParser 'detta-är-en-hemlighet'
 
@@ -69,7 +72,7 @@ exports.boot = (app) ->
     app.use express.favicon()
     app.use app.router
 
-
+    
 
 
 

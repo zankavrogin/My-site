@@ -8,6 +8,10 @@ block work
     div.gradient
       div.sub
     nav.bar
+      .nav-tablet
+              span.icon-tablet
+              span.icon-tablet
+              span.icon-tablet
       ul.nav
           li.nav 
             a.brand(href='/') Blog
@@ -15,7 +19,13 @@ block work
           li.nav 
             a.brand(href='/work') Work
               .brand-gradient.two
+      a#pull
+        .nav-button
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
       h1.expand Paintings
+        .brand-gradient.three
       ul.navi.nav-list
         li.tag.oil 
             a Oil
@@ -38,45 +48,46 @@ block work
         article.main
           p.main.
             I am a college student interested in art, music, and web developement/design. Through my art I try to bring dream-like imagery into reality.
-          .art
-            a.fancybox.acrylic(href='../images/Ian-Curtis.jpg' title="Ian Curtis")
-              .image-hover.a
-                h2 Ian Curtis
-              img.small(src='../images/Ian-Curtis-thumb.jpg', alt='')
-            a.fancybox.oil(href='../images/no-control.jpg' title="No Control")
-              .image-hover.b
-                h2 No Control
-              img.small(src='../images/no-control-thumb.jpg', alt='')
-            a.fancybox.digital(href='../images/russian-stamp.jpg' title="Russian Stamp")
-              .image-hover.c
-                h2 Russian Stamp
-              img.small(src='../images/russian-stamp-thumb.jpg', alt='')
-          .art
-            a.fancybox.digital(href='../images/self-21.jpg' title="Self-Portrait")
-              .image-hover.d
-                h2 Self-Portrait
-              img.small(src='../images/self-thumb.jpg', alt='')
-            a.fancybox.charcoal(href='../images/still-life-with-bunny.jpg' title="Still Life with Rabbit")
-              .image-hover.e
-                h2 Still Life With Rabbit
-              img.small(src='../images/still-life-with-bunny-thumb.jpg', alt='')
-            a.fancybox.oil(href='../images/window.jpg' title="The Window")
-              .image-hover.f
-                h2 The Window
-              img.small(src='../images/window-thumb.jpg', alt='')
-          .art
-            a.fancybox.oil(href='../images/transduction-of-past-present-and-future.jpg' title="Transduction of Past Present and Future")
-              .image-hover.g
-                h2 Transduction of Past Present and Future
-              img.small(src='../images/transduction-of-past-present-and-future-thumb.jpg', alt='')
-            a.fancybox.watercolor(href='../images/watercolor.jpg' title="Lucidity")
-              .image-hover.h
-                h2 Lucidity
-              img.small(src='../images/watercolor-thumb.jpg', alt='')
-            a.fancybox.charcoal(href='../images/still-life-rifle.jpg' title="Mosin Nagant")
-              .image-hover.h
-                h2 Mosin Nagant
-              img.small(src='../images/still-life-with-rifle-thumb.jpg', alt='')
+          .collapse
+            .art
+              a.fancybox.acrylic(href='../images/Ian-Curtis.jpg' title="Ian Curtis")
+                .image-hover.a
+                  h2 Ian Curtis
+                img.small(src='../images/Ian-Curtis-thumb.jpg', alt='')
+               a.fancybox.charcoal(href='../images/still-life-with-bunny.jpg' title="Still Life with Rabbit")
+                .image-hover.e
+                  h2 Still Life With Rabbit
+                img.small(src='../images/still-life-with-bunny-thumb.jpg', alt='')
+              a.fancybox.digital(href='../images/russian-stamp.jpg' title="Russian Stamp")
+                .image-hover.c
+                  h2 Russian Stamp
+                img.small(src='../images/russian-stamp-thumb.jpg', alt='')
+            .art
+              a.fancybox.digital(href='../images/self-21.jpg' title="Self-Portrait")
+                .image-hover.d
+                  h2 Self-Portrait
+                img.small(src='../images/self-thumb.jpg', alt='')
+              a.fancybox.oil(href='../images/no-control.jpg' title="No Control")
+                .image-hover.b
+                  h2 No Control
+                img.small(src='../images/no-control-thumb.jpg', alt='')
+              a.fancybox.oil(href='../images/window.jpg' title="The Window")
+                .image-hover.f
+                  h2 The Window
+                img.small(src='../images/window-thumb.jpg', alt='')
+            .art
+              a.fancybox.oil(href='../images/transduction-of-past-present-and-future.jpg' title="Transduction of Past Present and Future")
+                .image-hover.g
+                  h2 Transduction of Past Present and Future
+                img.small(src='../images/transduction-of-past-present-and-future-thumb.jpg', alt='')
+              a.fancybox.watercolor(href='../images/watercolor.jpg' title="Lucidity")
+                .image-hover.h
+                  h2 Lucidity
+                img.small(src='../images/watercolor-thumb.jpg', alt='')
+              a.fancybox.charcoal(href='../images/still-life-rifle.jpg' title="Mosin Nagant")
+                .image-hover.h
+                  h2 Mosin Nagant
+                img.small(src='../images/still-life-with-rifle-thumb.jpg', alt='')
 
 
 
@@ -101,7 +112,7 @@ block script
     $(window).scroll(function() {
         var el = $('.header');    
         var offset = el.offset();  
-        var opacity = ( ((offset.top * 2.3) - el.height() -100) /1500 ) * -1.2;
+        var opacity = ( ((offset.top * 3.2) - el.height() -100) /1200 ) * -1.2;
         $('.header').css('opacity', opacity );
     });
 
@@ -136,11 +147,6 @@ block script
     });
 
     
-
-    $('h1.expand').click(function(){
-        $('ul.navi>li.tag').toggleClass('children');
-        }
-      );
 
     $("li.tag").addClass('hide');
 
@@ -178,3 +184,39 @@ block script
        $('.art').children().show();
        }
     );
+
+    $('h1.expand').click(function(){
+        $('ul.navi>li.tag').toggleClass('children');
+        if(w < 557 && menu.is(':visible')){
+          menu.hide();
+        }
+      });
+
+      $('.nav-tablet').click(function() {
+          $('nav').toggleClass("tablet", 100);
+      });
+
+      var w = $(window).width();
+      var menu    = $('nav ul.nav');
+      $(function() {
+        var pull    = $('#pull');
+        menuHeight  = menu.height();
+
+        $(pull).on('click', function(e) {
+          e.preventDefault();
+          menu.slideToggle();
+           if($(".tag").hasClass("children")) {
+             $(".tag").removeClass('children')
+          }
+
+        });
+
+
+        $(window).resize(function(){
+          if(w > 541 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+          }
+        });
+      });
+
+      jQuery(".design").fitText(.4, { minFontSize: '80px', maxFontSize: '150px' })
