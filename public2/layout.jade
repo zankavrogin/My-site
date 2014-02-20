@@ -1,0 +1,139 @@
+doctype html
+html
+  head
+    block head
+      title= 'Poet Demo'
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+
+      link(rel='stylesheet', href='/styles/main.css')
+      script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+      script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+      script(type='text/javascript', src='../javascript/flowtype.js')
+      script(type='text/javascript', src='../javascript/jquery.fittext.js')
+  body
+    block work
+      div.gradient
+        div.sub
+      nav.bar
+        .nav-tablet
+              span.icon-tablet
+              span.icon-tablet
+              span.icon-tablet
+        ul.nav
+          li.nav
+            a.brand(href='/') Blog
+              .brand-gradient
+              .line-1
+              .line-2
+              .line-3
+              .line-4
+          li.nav 
+            a.brand(href='/work') Work
+              .brand-gradient.two
+        a#pull
+          .nav-button
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+        h1.expand Tags
+          .brand-gradient.three
+        ul.navi.nav-list 
+          li.nav-header 
+          - each tag in getTags()
+            li.tag
+              a(href=tagURL(tag)) #{tag}
+
+     
+      .wrap
+        .header
+          h2.design.radio RADIO
+          h2.design SCHIZO
+        .row
+          .blur
+          article.blog
+            p.top thinking too much
+            .line
+            .line-two
+            .line-three
+            .line-four
+            .line-five
+            .line-six
+            .line-seven
+
+          .span8
+            block content
+
+  
+  block script          
+    script.
+      $(window).bind('scroll', function() {
+           if ($(window).scrollTop() > 330) {
+             $('nav.bar').addClass('out').removeClass('bar');
+            }
+           else {
+               $('nav').removeClass('out').addClass('bar');
+           }
+      });
+
+
+      $("li.tag").addClass('hide');
+
+      $(window).scroll(function() {
+          var el = $('.header');    
+          var offset = el.offset();  
+          var opacity = ( ((offset.top * 1.5) - el.height() -100) /1000 ) * -1.2;
+          $('.header').css('opacity', opacity );
+      });
+ 
+      $('h1.expand').click(function(){
+        $('ul.navi>li.tag').toggleClass('children');
+        if(w < 642 && menu.is(':visible')){
+          menu.hide();
+        }
+      });
+
+      
+
+      $('.nav-tablet').click(function() {
+          $('nav').toggleClass("tablet", 100);
+          menu.show();
+      });
+
+      var w = $(window).width();
+      var menu    = $('nav ul.nav');
+      $(function() {
+        var pull    = $('#pull');
+        menuHeight  = menu.height();
+
+        $(pull).on('click', function(e) {
+          e.preventDefault();
+          menu.slideToggle();
+           if($(".tag").hasClass("children")) {
+             $(".tag").removeClass('children')
+          }
+
+        });
+
+
+        $(window).resize(function(){
+          if(w > 642 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+          }
+        });
+      });
+
+      jQuery(".design").fitText(.4, { minFontSize: '80px', maxFontSize: '150px' })
+
+      window.onload = function(){
+        var elements = document.getElementsByClassName("capitalize")
+        for (var i=0; i<elements.length; i++){
+          elements[i].innerHTML = elements[i].innerHTML.replace(/\b([a-z])([a-z]+)?\b/gim, "<span class='first-letter'>$1</span>$2")
+        }
+      }
+
+
+
+
+      

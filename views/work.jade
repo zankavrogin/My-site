@@ -19,6 +19,11 @@ block work
           li.nav 
             a.brand(href='/work') Work
               .brand-gradient.two
+      .lines
+          .line-1
+          .line-2
+          .line-3
+          .line-4
       a#pull
         .nav-button
           span.icon-bar
@@ -36,7 +41,24 @@ block work
         li.tag.digital 
             a Digital
         li.tag.watercolor 
-            a Watercolor  
+            a Watercolor
+
+
+
+      .about
+          .bottom
+            img.self(src='../images/self.png', alt='')
+            h1.about-me About
+            p.me I am a community college student/ philosopher/ dunce interested in art, design. music and web development. I try to make sense.
+            
+            #mc_embed_signup
+              form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
+                input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='required')
+                div.form
+                  input(type='text', name='b_e1cf44a59fecbe47cda7b5e61_b2b4f9b0fa', value='')
+                .clear
+                  input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+              .notification_container
 
    
     .wrap
@@ -47,7 +69,7 @@ block work
         .blur
         article.main
           p.main.
-            I am a college student interested in art, music, and web developement/design. Through my art I try to bring dream-like imagery into reality.
+            Through my art I try to bring dream-like imagery into reality. Every night there is the possibility drift off to unfamiliar places, most of the time never to bee seen or remembered again. These images shold be remembered. The world has many beautiful places, but everything is limited by the laws of physics. Our mind knows no such laws. It's nice to explore these posibilities.
           .collapse
             .art
               a.fancybox.acrylic(href='../images/Ian-Curtis.jpg' title="Ian Curtis")
@@ -88,6 +110,9 @@ block work
                 .image-hover.h
                   h2 Mosin Nagant
                 img.small(src='../images/still-life-with-rifle-thumb.jpg', alt='')
+      footer
+        p Nathan Zankich 2014
+
 
 
 
@@ -148,7 +173,11 @@ block script
 
     
 
-    $("li.tag").addClass('hide');
+    $(document).ready(function() {
+        $("ul.navi").addClass("hide")
+      });
+
+    
 
     $('li.oil').click(function(){
        $('.art').children().hide();
@@ -186,14 +215,16 @@ block script
     );
 
     $('h1.expand').click(function(){
-        $('ul.navi>li.tag').toggleClass('children');
-        if(w < 557 && menu.is(':visible')){
+        $("ul.navi").toggleClass("hide", 300);
+        $('li.tag').toggleClass('children');
+        if(w < 559 && menu.is(':visible')){
           menu.hide();
         }
       });
 
       $('.nav-tablet').click(function() {
           $('nav').toggleClass("tablet", 100);
+          $('.about').toggleClass("about-slide");
       });
 
       var w = $(window).width();
@@ -206,7 +237,8 @@ block script
           e.preventDefault();
           menu.slideToggle();
            if($(".tag").hasClass("children")) {
-             $(".tag").removeClass('children')
+             $(".tag").removeClass('children');
+             $(".navi").addClass('hide');
           }
 
         });

@@ -1,0 +1,49 @@
+/* MailChimp Form Embed Code - Slim - 08/17/2011 */
+#mc_embed_signup form {display: block; position: relative; text-align: left; padding: 10px 0 10px 3%; }
+#mc_embed_signup h2 {font-weight: bold; padding: 0; margin: 15px 0; font-size: 1.4em; }
+ 
+#mc_embed_signup input { border: 2px solid #533232;  }
+#mc_embed_signup input[type=checkbox]{ -webkit-appearance: checkbox; }
+#mc_embed_signup input[type=radio]{ -webkit-appearance: radio; }
+#mc_embed_signup input:focus { border-color: #799877; }
+ 
+#mc_embed_signup .button {
+  display: block;
+  position: relative;
+  background-color: #241818;
+  padding: 0;
+  margin: 0 auto;
+  border: 0 none;
+  border-radius: 30px;
+  color: #fff; 
+  cursor: pointer;
+  font-size: 12px;
+  width: 85%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+}
+#mc_embed_signup .button:hover { background-color: #443333; border-bottom-color: #7fac69; }
+#mc_embed_signup .button:active { top: 2px; border-bottom-width: 1px; }
+
+#mc_embed_signup{
+  //background:#fff; 
+  clear:left; 
+  font:12px Helvetica,Arial,sans-serif; 
+}
+
+#mc_embed_signup input.email {
+display: block;
+padding: 4px 0;
+margin: 0 auto 10px;
+text-indent: 5px;
+width: 90%;
+}
+
+
+.form{
+position: absolute; 
+left: -5000px;
+}

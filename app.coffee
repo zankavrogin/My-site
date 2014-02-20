@@ -29,13 +29,14 @@ mongoose.connection.on 'open', ()->
   model_files = (require 'fs').readdirSync model_loc
   model_files.forEach (file) ->
     (require model_loc + '/' + file).boot(app)
-
-
+  
+  
   # Bootstrap controllers
   controller_loc = __dirname + '/controllers'
   controller_files = (require 'fs').readdirSync controller_loc
   controller_files.forEach (file) ->
     (require controller_loc + '/' + file)(app)
+    
 
   
 
@@ -48,3 +49,4 @@ mongoose.connection.on 'open', ()->
 
 #mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'
 mongoose.connect "mongodb://127.0.0.1/test"
+

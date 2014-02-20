@@ -48,9 +48,26 @@ article.main{
   margin: 100% 25px 0;
 }
 
+article.blog{
+  width: 70%;
+  display: block;
+  position: relative;
+  margin: 100% 0 0;
+  font: 300 22px/30px open sans;
+  text-align: center;
+  padding: 5% 11.5%;
+  overflow: hidden;
+}
+
+p.top {
+font: 300 10px/30px open sans condensed,droid sans;
+text-align: left;
+color: black;
+margin-top: -2%;
+}
 
 p.main{
-  font: 300 15px/20px open sans;
+  font: 300 15px/20px open sans condensed, sans-serif;
   top: 0;
   text-align: center;
   width: 72%;
@@ -192,6 +209,8 @@ h2.design:first-child{
   overflow: hidden;
   background-color: #111;
   padding: 0 14px 0;
+  position: absolute;
+  width: 99%;
 }
 
 .nav-header, .tag> a{
@@ -299,7 +318,6 @@ nav.bar,.out{
   position: relative;
   height: 100%;
   float:left;
-  margin-left: 10%;
   background-color: black;
   .box-shadow(0px -2px 10px rgba(0,0,0,.2));
 }
@@ -328,11 +346,16 @@ nav.bar,.out{
 }
 
 .brand {
+  
+  height: 58px;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 1px solid black;
   float: left;
   display: block;
   padding: 11px 58px 2px;
   margin: 0 0 10px -84px;
-  font: 400 30px/43px droid serif, times;
+  font: 200 45px/45px dosis, sans-serif;
   color: #ffffff;
   width:100%;
   text-shadow: 4px 1px 3px black;
@@ -345,7 +368,7 @@ display: block;
 
 div.post{
   margin-bottom: 30px;
-  .box-shadow(0 3px 0px rgba(65, 11, 11, 0.8));
+  .box-shadow(0 1px 0px rgba(65, 11, 11, 0.8));
 }
 
 p>a{
@@ -372,13 +395,14 @@ p>a{
   position: relative;
   padding-bottom: 100px;
   .box-shadow(73px 0px rgba(0,0,0, .4));
+  left: 10%;
 }
 
 .span8{
   width: 70%;
 display: block;
 position: relative;
-margin: 100% 0 0 50px;
+margin: 0 0 0 50px;
 top: 50px;
 }
 
@@ -389,22 +413,25 @@ color: #333333;
 text-rendering: optimizelegibility;
 }
 
-h1 {
-  font: 400 30px/35px adam, sans-serif;
+h3 {
+  font: 400 30px/35px titillium,Crimson Text;
   margin-bottom: 20px;
+  color:rgb(43, 9, 9);
 }
-
 .content, p {
 margin: 0 0 9px;
-font-family: anson,Helvetica,Arial,sans-serif;
-font-size: 17px;
+font-family: open sans, droid sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: normal;
+font-size: 16px;
+font-weight: 200;
 line-height: 20px;
+-webkit-font-smoothing: antialiased;
 }
 
-div.tags{
-  font-family: stark;
-  font-size: 14px;
 
+div.tags{
+  font-family: dosis,sans-serif;
+font-size: 12px;
   a{
     padding-right:5px;
   }
@@ -440,15 +467,7 @@ nav.bar{
     background: #111;
   }
       
-  a.brand{
-    width: 100%;
-    height: 58px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 38px;
-    border-bottom: 1px solid black;
   
-  }
   
   .nav-tablet{
     display: none;
@@ -497,4 +516,40 @@ nav.bar{
     position: absolute;  
   }
 
+
+.about{
+  display: none;
+  margin-left: -200px;
+  .transition(margin-left .5s ease-in-out);
+}
+
+.bottom{
+  display: none;
+  width: 100%;
+  min-width: 100px;
+  position: absolute;
+  bottom: 10%;
+}
+
+h1.about-me{
+  text-align: center;
+  color: #C4C4C4;
+}
+
+img.self{
+  width: 90px;
+  margin: 34% auto 0;
+  position: relative;
+  display: block;
+  z-index:-1;
+}
+
+p.me{
+  font: 300 12px/15px open sans, sans-serif;
+  margin: 0 auto;
+  //text-align: center;
+  padding: 0 5% 0 4%;
+  color: rgb(112, 99, 99);
+  width: 95px;
+}
 }

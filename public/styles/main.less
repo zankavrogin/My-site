@@ -13,24 +13,25 @@
 
 @import 'prefixer.less';
 
+
 @font-face{
-  font-family: crimson;
-  src: url('../fonts/CrimsonText-Roman.ttf');
+  font-family: dosis;
+  src: url('../fonts/Dosis-ExtraLight.otf');
 }
 
 @font-face{
-  font-family: adam;
-  src: url('../fonts/ADAM.otf');
+  font-family: titillium;
+  src: url('../fonts/Titillium-Light.otf');
 }
 
 @font-face{
-  font-family: nova;
-  src: url('../fonts/HomizioNovaWFLight.ttf');
+  font-family: tit-thin;
+  src: url('../fonts/Titillium-Thin.otf');
 }
 
 @font-face{
-  font-family: fabrica;
-  src: url('../fonts/Fabrica.otf');
+  font-family: exist;
+  src: url('../fonts/Existence-Light.otf');
 }
 
 @font-face{
@@ -41,39 +42,21 @@
   url('../fonts/Market_Deco.ttf') format('truetype');
 }
 
-@font-face{
-font-family: stark;
- src: url('../fonts/Stark.otf');
-}
 
-@font-face{
-font-family: anson;
- src: url('../fonts/Anson-Regular.otf');
-}
+
+
 
 @font-face{
 font-family: born;
  src: url('../fonts/Born.otf');
 }
 
-@font-face{
-font-family: dense;
- src: url('../fonts/Dense-Regular.otf');
-}
-
-@font-face{
-font-family: mohave;
- src: url('../fonts/Mohave.otf');
-}
-
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
-@import url(http://fonts.googleapis.com/css?family=Crete+Round);
-@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,600,700);
-@import url(http://fonts.googleapis.com/css?family=Alegreya:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400);
+//@import url(http://fonts.googleapis.com/css?family=Dosis:200,300,400);
 @green:desaturate(#403728, 15%);
 
 @import 'partials/tablet';
@@ -96,14 +79,73 @@ button:hover {
 }
 
 .first-letter{
-  font-size: 35px;
+  font-size: 40px;
 }
 
 html{ 
   background-color: black;
 }
 
-@media only screen and (min-width: 699px) {
+.line, .line-two, .line-three, .line-four, .line-five,.line-six, .line-seven,.line-eight, .line-nine, .line-ten{
+  float: right;
+  height: 1px;
+  width: 100%;
+  background: #241818;
+  position: absolute;
+  right: 32%;
+  top: 5%;
+  z-index: -1;
+  .rotate(60deg);
+  box-shadow: -44px -62px rgb(27, 27, 27);
+  opacity: .4;
+}
+.line-two{
+  background: rgba(0,0,0,.2);
+  right: 31%;
+  height: 2px;
+  top: -2%;
+  .rotate(15deg);
+  box-shadow: 51px 53px black;
+}
+.line-three{
+  right: 29%;
+  .rotate(167deg);
+  box-shadow: -44px 40px #1b1b1b;
+  opacity: .2;
+}
+.line-four{
+  right: 28%;
+  .rotate(225deg);
+  height: 1%;
+  opacity: .8;
+  box-shadow: -44px -62px rgba(0,0,0,.2);
+}
+.line-five{
+  right: 47%;
+.rotate(28deg);
+}
+.line-six{
+  right: 39%;
+.rotate(51deg);
+}
+.line-seven{
+  right: 41%;
+.rotate(11deg);
+}
+.line-eight{
+right: 52%;
+.rotate(45deg);
+}
+.line-nine{
+right: 64%;
+.rotate(34deg);
+}
+.line-ten{
+right: 51%;
+.rotate(67deg);
+}
+
+@media only screen and (min-width: 700px) {
 
 div.back{
   width: 100%;
@@ -137,24 +179,41 @@ li.nav{
 article.main{
   background-color: white;
   top: 50px;
-  height: 1500px;
   z-index: 1;
   display: block;
   width: 100%;
   position: relative;
   margin: 335px 0 0 0px;
 }
+article.blog{
+  width: 77%;
+  display: block;
+  position: relative;
+  margin: 332px auto 0;
+  font: 300 22px/30px open sans;
+  text-align: center;
+  padding: 5% 11.5%;
+  overflow: hidden;
+}
+
+
+p.top{
+  font: 300 14px/30px open sans condensed,droid sans;
+  text-align: left;
+  color: black;
+  margin-top: -2%;
+}
+
 
 
 p.main{
-  font: 300 20px/30px open sans;
+  font: 300  18px/25px open sans condensed, sans-serif;
   top: 0;
   text-align: center;
   width: 72%;
   margin: 0 0 -3% 11%;
   padding-top: 1%;
 }
-
 
 .art{
   display: block;
@@ -280,6 +339,8 @@ h2.design:first-child{
   overflow: hidden;
   background-color: #111;
   padding: 0 14px 0;
+  position: absolute;
+  width: 99%;
 }
 
 .nav-header, .tag> a{
@@ -292,7 +353,7 @@ font: normal 15px/20px droid sans;
 }
 
 h1.expand{
-  font: 300 19px/28px ubuntu, arial ,times;
+  font: 300 19px/28px open sans, ubuntu, arial ,times;
   color: white;
   margin-top: 185px;
   padding-left: 15px;
@@ -319,18 +380,16 @@ nav:hover{
   }
 }
 
-.hide{
-  display: none;
-}
+
 
 .tag{
   overflow:hidden;
   display:block;
   height:20px;
-  .transition-delay(.5s);
-  .animation(display ease-out .75s);  
+  .transition-delay(.3s);
+  .animation(display ease-out .3s);  
   .animation-fill-mode(forwards);  
-  .animation-duration( .75s);  
+  .animation-duration( .3s);  
   
   a{
     color: #111;
@@ -339,14 +398,18 @@ nav:hover{
 
 .children{
   display:block;
-  .animation(expand ease-out .5s);  
+  .animation(expand ease-out .3s);  
   .animation-fill-mode(forwards);  
   .animation-duration(.5s);
   .transition-delay(1s);
   
   a{
-    color: #8B7575;;
+    color: #8B7575;
+    font: 300 14px/20px Open Sans;
   }  
+}
+.hide{
+  display: none;
 }
 
 @-webkit-keyframes expand {.expand-frames;}
@@ -385,11 +448,22 @@ nav.bar {
   margin-left:-6%;
  .transition(0.5s ease-in-out);
   text-indent: -59px;
+  overflow: hidden;
+  overflow-y: visible;
+
 
   &:hover{
     text-indent: 0px;
     margin-left: 0%;
     .box-shadow(0px 0 25px #000)
+  }
+  
+  &:hover>.about{
+    margin-left: 0px;
+  }
+  
+  &:hover>.lines{
+    left: 0;
   }
 }
 
@@ -434,19 +508,71 @@ nav.bar {
   display: block;
   padding: 16px 20px 2px;
   margin: 0 0 10px -45px;
-  font: 400 29px/25px born, droid serif, times;
+  font:200 35px/25px dosis,exist, droid serif, times;
   color: #fff;
   width:100%;
-  text-shadow: 4px 1px 3px black;
+  text-shadow: 0px 4px 0px black; 
+  
+  
+  &:hover{
+    opacity: 1;
+  }
   
   &:hover > div{
      background-position:-100% 0;
   }
 }
 
+.brand:first-letter
+{ 
+font-size:110%;
+}
+
+.lines{
+  top: 13%;
+  left: -100px;
+  position: relative;
+  .transition(.5s ease-in-out)
+}
+
+.line-1, .line-2, .line-3, .line-4{
+float: right;
+height: 1px;
+position: absolute;
+z-index: -1;
+.rotate(35deg);
+opacity: .8;
+background: #6F6F6F;
+left: 33px;
+margin-top: 30px;
+width: 52px;
+box-shadow: -28px 1px black;
+}
+.line-2{
+  margin-top: -54px;
+width: 100px;
+left: -12px;
+
+box-shadow: 22px 1px black;
+}
+
+.line-3{
+left: 37px;
+margin-top: 18px;
+width: 100px;
+box-shadow: -22px 1px #000;
+}
+.line-4{
+  left: 7px;
+margin-top: -90px;
+width: 52px;
+box-shadow: 16px 1px black
+}
+
+
 div.post{
   margin-bottom: 30px;
-  .box-shadow(0 3px 0px rgba(34, 2, 2, 0.8));
+  .box-shadow(0 1px 0px rgba(34, 2, 2, 0.8));
 }
 
 p:last-child > a{
@@ -471,25 +597,18 @@ p:last-child > a{
   z-index: 14;
   margin-top: 42px;
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 250px;
   //.box-shadow(500px 0px rgba(255, 255, 255, 1.4))
 }
 
-article{
-  width: 620px;
-  display: block;
-  position: relative;
-  margin: 335px 0 0 50px;
-  top: 50px;
-}
 
 .span8{
 width: 85%;
-max-width: 620px;
+max-width: 1000px;
 display: block;
 position: relative;
-margin: 335px 0 0 50px;
-top: 50px;
+margin: 0 10%;
+top: 75px;
 }
 
 h1, h3, h4, h5, h6 {
@@ -497,25 +616,28 @@ margin: 0;
 font-weight: bold;
 color: #333333;
 text-rendering: optimizelegibility;
+font: 200 27px/25px dosis;
 }
 
-h1 {
-  font: 400 25px/35px adam,Crimson Text;
+h3 {
+  font: 400 35px/35px titillium,Crimson Text;
   margin-bottom: 20px;
   color:rgb(43, 9, 9);
+  //text-align: center;
 }
 
 .content, p {
 margin: 0 0 9px;
-font-family: anson, droid sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family: open sans, droid sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-weight: normal;
-font-size: 17px;
+font-size: 16px;
+font-weight: 200;
 line-height: 20px;
 -webkit-font-smoothing: antialiased;
 }
 
 div.tags{
-  font-family: stark;
+  font-family: dosis, sans-serif;
   font-size: 14px;
   opacity:.8;
   
@@ -528,7 +650,7 @@ div.tags{
 padding-left: 14px;
 padding-right: 14px;
 margin-bottom: 0;
-margin-top: -55px;
+margin-top: -35px;
 }
 
 ul.pagination{
@@ -543,6 +665,9 @@ ul.pagination{
   height: 100%;
   width: 10%;
   min-width: 100px;
+  overflow: hidden;
+  overflow-y: visible;
+  
   .transition(0.5s ease-in-out);
   .animation(move ease-out 3s);  
   .animation-fill-mode(forwards);  
@@ -551,7 +676,56 @@ ul.pagination{
   h1.expand{
     background-position: -100% 0;
   }
+  
+  .about{
+    margin-left: 0;
+  }
+  
+  .lines{
+    left: 0;
+  }
 }
+
+.about{
+  //margin-top: 125px;
+  //height: 100%;
+  margin-left: -200px;
+  .transition(margin-left .5s ease-in-out);
+}
+
+.bottom{
+  width: 100%;
+  min-width: 100px;
+  position: absolute;
+  bottom: 5%;
+  top: 50%;
+z-index: -10;
+}
+
+h1.about-me{
+  text-align: center;
+  color: #C4C4C4;
+}
+
+img.self{
+  width: 90px;
+  margin: 34% auto 0;
+  position: relative;
+  display: block;
+  z-index:-1;
+}
+
+p.me{
+  font: 300 12px/15px open sans, sans-serif;
+  margin: 0 auto;
+  //text-align: center;
+  padding: 0 5% 0 4%;
+  color: rgb(112, 99, 99);
+  width: 95px;
+}
+
+
+
 
 @-webkit-keyframes move {.move-frames;}
 @-moz-keyframes move {.move-frames;}
@@ -561,6 +735,13 @@ ul.pagination{
   from {margin-left :-6%;}
   to {margin-left :0;}
 }
+}
+
+
+footer>p{
+  color: white;
+font: 200 12px/18px titillium;
+margin-left: 3%;
 }
 
 

@@ -1,8 +1,9 @@
 {{{
-    "title" : "first.js",
-    "tags"  : [ "blog", "stuff" ],
-    "category" : "javascript",
-    "date" : "1-13-2014"
+    "title" : "Linseed Oil: 'Artist' Grade of 'Home Depot' Grade",
+    "tags"  : [ "Oil-Painting" ],
+    "date" : "2-20-2014"
 }}}
 
-*I just awoke,* this is my first post.
+I recently thought to myself while buying a $10 8 oz. bottle of linseed oi.
+
+![Linseed Oil](../public/image/linseed.jpg)
