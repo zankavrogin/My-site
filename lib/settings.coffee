@@ -35,7 +35,7 @@ exports.boot = (app) ->
       next()
     
     app.use lessMiddleware(
-      src: __dirname + '/../public'
+      src: __dirname + './../public'
       compress: true
     )
     

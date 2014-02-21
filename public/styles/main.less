@@ -13,6 +13,15 @@
 
 @import 'prefixer.less';
 
+@font-face{
+  font-family: crimson;
+  src: url('../fonts/CrimsonText-Roman.ttf');
+}
+
+@font-face{
+  font-family: adam;
+  src: url('../fonts/ADAM.otf');
+}
 
 @font-face{
   font-family: dosis;
@@ -36,14 +45,10 @@
 
 @font-face{
   font-family: Market;
-   src: url('../fonts/market_deco-webfont.eot');
-  src: url('../fonts/market_deco-webfont.eot?#iefix') format('embedded-opentype'),             
-  url('../fonts/Market_Deco.ttf.woff') format('woff'),
+  src: url('../fonts/market_deco-webfont.eot');
+  src: url('../fonts/market_deco-webfont.eot?#iefix') format('embedded-opentype'),    
   url('../fonts/Market_Deco.ttf') format('truetype');
 }
-
-
-
 
 
 @font-face{
@@ -52,10 +57,12 @@ font-family: born;
 }
 
 
+
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400);
 //@import url(http://fonts.googleapis.com/css?family=Dosis:200,300,400);
 @green:desaturate(#403728, 15%);
 
@@ -202,6 +209,7 @@ p.top{
   text-align: left;
   color: black;
   margin-top: -2%;
+  opacity: .4;
 }
 
 
@@ -563,8 +571,8 @@ width: 100px;
 box-shadow: -22px 1px #000;
 }
 .line-4{
-  left: 7px;
-margin-top: -90px;
+left: 1px;
+margin-top: -97px;
 width: 52px;
 box-shadow: 16px 1px black
 }
@@ -620,7 +628,7 @@ font: 200 27px/25px dosis;
 }
 
 h3 {
-  font: 400 35px/35px titillium,Crimson Text;
+  font: 400 35px/35px titillium, dosis, sans-serif;
   margin-bottom: 20px;
   color:rgb(43, 9, 9);
   //text-align: center;
