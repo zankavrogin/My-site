@@ -1,5 +1,3 @@
-everyauth = require 'everyauth'
-
 exports.boot = module.exports.boot = (app) ->
   app.use (req, res, next) ->
 

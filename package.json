@@ -1,7 +1,7 @@
 {
   "name": "my-site",
   "description": "My site and blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "author": "Nathan Zankich (http://github.com/zankavrogin)",
   "repository": {
@@ -16,7 +16,6 @@
     "coffee-script": "1.6.3",
     "poet": "1.0.0-rc3",
     "connect-mongodb": "1.1.5",
-    "everyauth": "0.4.5",
     "express": "3.4.8",
     "express-messages-bootstrap": "~0.1.0",
     "express-partials": "~0.1.1",

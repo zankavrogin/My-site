@@ -1,6 +1,5 @@
 express   = require 'express'
 lessMiddleware = require 'less-middleware'
-everyauth = require 'everyauth'
 partials  = require 'express-partials'
 fs        = require 'fs'
 poet = require("poet")
@@ -62,7 +61,6 @@ exports.boot = (app) ->
       #maxAge: 1000*60*60*24*5
     #)
 
-    app.use everyauth.middleware()
 
     # Helpers
     (require './lib/helpers').boot app
