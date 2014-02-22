@@ -1,7 +1,7 @@
 crypto = require('ezcrypto').Crypto
 mongoose = require('mongoose')
 Schema = mongoose.Schema
-
+console.log("11")
 # Schema Setup
 UserSchema = new Schema(
   email:
@@ -73,6 +73,7 @@ UserSchema.pre 'save', (next) ->
   else
     next()
 
+console.log("12")
 
 
 # Exports
@@ -80,5 +81,5 @@ exports.UserSchema = module.exports.UserSchema = UserSchema
 exports.boot = module.exports.boot = (app) ->
   mongoose.model 'User', UserSchema
   app.models.User = mongoose.model 'User'
-
+console.log("13")
 

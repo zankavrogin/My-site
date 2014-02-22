@@ -6,7 +6,7 @@ poet = require("poet")
 
 
 exports.boot = (app) -> 
-
+  console.log("7")
   poet = poet(app,
     posts: "./_posts/"
     postsPerPage: 5
@@ -22,7 +22,7 @@ exports.boot = (app) ->
     app.set 'view engine', 'jade'
     
     
-
+    console.log("8")
     app.use express.json()
     app.use express.urlencoded()
 
@@ -60,7 +60,8 @@ exports.boot = (app) ->
       # 5 days
       #maxAge: 1000*60*60*24*5
     #)
-
+    
+    console.log("9")
 
     # Helpers
     (require './lib/helpers').boot app
@@ -90,7 +91,8 @@ exports.boot = (app) ->
 
   app.configure 'production', ()->
     app.enable 'view cache'
-    
+  
+  console.log("10")
     
 
 
