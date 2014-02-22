@@ -41,6 +41,6 @@ mongoose.connection.on('open', function() {
   return console.log("4");
 });
 
-mongoose.connect(process.env.MONGOHQ_URL);
+process.env.MONGOLAB_URI;
 
 console.log("5");
