@@ -36,6 +36,8 @@ mongoose.connection.on 'open', ()->
   server = app.listen port
   console.log "Express-Boilerplate started on port #{port}"
 
-#mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'
-mongoose.connect "mongodb://127.0.0.1/test"
+#mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'mongoose.connect "mongodb://127.0.0.1/test"
+
+mongoose.connect process.env.MONGOHQ_URL
+
 
