@@ -41,6 +41,6 @@ mongoose.connection.on('open', function() {
   return console.log("4");
 });
 
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(' mongodb://nikoali:nikolai1@widmore.mongohq.com:10010/Stavrogin');
 
 console.log("5");
