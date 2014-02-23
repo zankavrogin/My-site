@@ -15,6 +15,8 @@ settings = require('./settings');
 
 errors = require('./lib/error-handler');
 
+app.config = process.env;
+
 console.log(".1");
 
 mongoose.connection.on('open', function() {
@@ -41,6 +43,4 @@ mongoose.connection.on('open', function() {
   return console.log("4");
 });
 
-mongoose.connect(' mongodb://nikoali:nikolai1@widmore.mongohq.com:10010/Stavrogin');
-
-console.log("5");
+mongoose.connect(app.config.MONGOHQ_URL || 'mongpo');
