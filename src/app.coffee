@@ -43,7 +43,7 @@ mongoose.connection.on 'open', ()->
 #mongoose.connect app.config.MONGOHQ_URL||'mongodb://localhost/test'mongoose.connect "mongodb://127.0.0.1/test"
 
 #mongoose.connect "mongodb://127.0.0.1/test"
-mongoose.connect app.config.MONGOHQ_URL
+mongoose.connect process.env.MONGOHQ_URL
 console.log("5")
 
 

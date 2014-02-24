@@ -41,7 +41,7 @@
     return console.log("4");
   });
 
-  mongoose.connect(app.config.MONGOHQ_URL);
+  mongoose.connect(process.env.MONGOHQ_URL);
 
   console.log("5");
 
