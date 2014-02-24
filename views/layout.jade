@@ -2,7 +2,7 @@ doctype html
 html
   head
     block head
-      title= 'Poet Demo'
+      title= 'Nathan Zankich'
       meta(charset='utf-8')
       meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
 
@@ -46,22 +46,21 @@ html
           - each tag in getTags()
             li.tag
               a(href=tagURL(tag)) #{tag}
-              
-        block about
-          .about
-            .bottom
-              img.self(src='../images/self.png', alt='')
-              h1.about-me About
-              p.me I am a community college student/ philosopher/ dunce interested in art, design. music and web development. I try to make sense.
-              
-              #mc_embed_signup
-                form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
-                  input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='required')
-                  div.form
-                    input(type='text', name='b_e1cf44a59fecbe47cda7b5e61_b2b4f9b0fa', value='')
-                  .clear
-                    input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
-                .notification_container
+
+        .about
+          .bottom
+            img.self(src='../images/self.png', alt='')
+            h1.about-me About
+            p.me I am a community college student/ philosopher/ dunce interested in art, design. music and web development. I try to make sense.
+            
+            #mc_embed_signup
+              form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
+                input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='required')
+                div.form
+                  input(type='text', name='b_e1cf44a59fecbe47cda7b5e61_b2b4f9b0fa', value='')
+                .clear
+                  input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+              .notification_container
 
      
       .wrap
@@ -103,8 +102,7 @@ html
         $("ul.navi").addClass("hide")
       });
 
-      
-
+    
 
       $(window).scroll(function() {
           var el = $('.header');    
@@ -114,18 +112,20 @@ html
       });
  
       $('h1.expand').click(function(){
-
         $("ul.navi").toggleClass("hide", 300);
         $('ul.navi>li.tag').toggleClass('children');
         if(w < 559 && menu.is(':visible')){
-          menu.hide();
+          menu.slideToggle();
         }
       });
 
 
-      
-
-
+      ///NEED MODERNIZR
+      $(window).resize(function () {
+         if(w > 559){
+          menu.show();
+        }
+      });
 
 
       $('.nav-tablet').click(function() {

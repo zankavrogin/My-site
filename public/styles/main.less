@@ -14,16 +14,6 @@
 @import 'prefixer.less';
 
 @font-face{
-  font-family: crimson;
-  src: url('../fonts/CrimsonText-Roman.ttf');
-}
-
-@font-face{
-  font-family: adam;
-  src: url('../fonts/ADAM.otf');
-}
-
-@font-face{
   font-family: dosis;
   src: url('../fonts/Dosis-ExtraLight.otf');
 }
@@ -31,11 +21,6 @@
 @font-face{
   font-family: titillium;
   src: url('../fonts/Titillium-Light.otf');
-}
-
-@font-face{
-  font-family: tit-thin;
-  src: url('../fonts/Titillium-Thin.otf');
 }
 
 @font-face{
@@ -49,15 +34,6 @@
   src: url('../fonts/market_deco-webfont.eot?#iefix') format('embedded-opentype'),    
   url('../fonts/Market_Deco.ttf') format('truetype');
 }
-
-
-@font-face{
-font-family: born;
- src: url('../fonts/Born.otf');
-}
-
-
-
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
@@ -161,7 +137,7 @@ div.back{
   display: block;
   z-index: -10;
   background-size: 100%;
-  background-image: url('../images/head.png');
+  background-image: url('../images/head.jpg');
   background-attachment: fixed;
 }
 
@@ -316,7 +292,7 @@ div.gradient{
   display: block;
   z-index: 1;
   background-size: 100%;
-  background-image: url('../images/headdark.png');
+  background-image: url('../images/head.jpg');
   background-attachment: fixed;
   left:4%;
   opacity: 1;
@@ -443,37 +419,7 @@ nav:hover{
  100% {height:0px;}
 }
 
-nav.bar {
-  position: fixed;
-  background-color:#222;
-  top: 0;
-  z-index: 15;
-  height: 100%;
-  background-position-x: 75%;
-  width: 10%;
-  min-width: 100px;
-  background-size: 1043%;  
-  margin-left:-6%;
- .transition(0.5s ease-in-out);
-  text-indent: -59px;
-  overflow: hidden;
-  //overflow-y: visible;
 
-
-  &:hover{
-    text-indent: 0px;
-    margin-left: 0%;
-    .box-shadow(0px 0 25px #000)
-  }
-  
-  &:hover>.about{
-    margin-left: 0px;
-  }
-  
-  &:hover>.lines{
-    left: 0;
-  }
-}
 
 .wrap{
   width: 80%;
@@ -537,7 +483,7 @@ font-size:110%;
 }
 
 .lines{
-  top: 13%;
+  top: 110px;
   left: -100px;
   position: relative;
   .transition(.5s ease-in-out)
@@ -665,6 +611,40 @@ ul.pagination{
   list-style: none;
 }
 
+nav.bar {
+  position: fixed;
+  background-color:#222;
+  top: 0;
+  z-index: 15;
+  height: 100%;
+  background-position-x: 75%;
+  width: 10%;
+  min-width: 100px;
+  background-size: 1043%;  
+  margin-left:-6%;
+ .transition(0.5s ease-in-out);
+  //.animation(move-back ease-out .5s);  
+ 
+  text-indent: -59px;
+  overflow: hidden;
+  overflow-y: visible;
+
+
+  &:hover{
+    text-indent: 0px;
+    margin-left: 0%;
+    .box-shadow(0px 0 25px #000)
+  }
+  
+  &:hover>.about{
+    margin-left: 0px;
+  }
+  
+  &:hover>.lines{
+    left: 0;
+  }
+}
+
 .out{
   position: fixed;
   background-color:#222;
@@ -672,14 +652,11 @@ ul.pagination{
   z-index: 15;
   height: 100%;
   width: 10%;
+  margin-left:0%;
   min-width: 100px;
   overflow: hidden;
   //overflow-y: visible;
-  
   .transition(0.5s ease-in-out);
-  .animation(move ease-out 3s);  
-  .animation-fill-mode(forwards);  
-  .animation-duration(.5s);  
   
   h1.expand{
     background-position: -100% 0;
@@ -740,10 +717,21 @@ p.me{
 @keyframes move {.move-frames;}
 
 .move-frames () {
-  from {margin-left :-6%;}
-  to {margin-left :0;}
+  from {margin-left: -6%;}
+  to {margin-left: 0;}
+}
+
+
+@-webkit-keyframes move-back {.move-back-frames;}
+@-moz-keyframes move-back {.move-back-frames;}
+@keyframes move-back {.move-back-frames;}
+
+.move-back-frames () {
+  from {margin-left: 0%;}
+  to {margin-left: -6;}
 }
 }
+
 
 
 footer>p{
