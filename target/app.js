@@ -41,7 +41,7 @@
     return console.log("4");
   });
 
-  mongoose.connect("mongodb://127.0.0.1/test");
+  mongoose.connect(app.config.MONGOHQ_URL);
 
   console.log("5");
 
