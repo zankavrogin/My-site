@@ -41,7 +41,7 @@
     return console.log("4");
   });
 
-  mongoose.connect(process.env.MONGOHQ_URL);
+  mongoose.connect(process.env.MONGOLAB_URI);
 
   console.log("5");
 
