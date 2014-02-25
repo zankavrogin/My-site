@@ -10,6 +10,7 @@ html
       link(rel='stylesheet', href='/styles/mailchimp.css')
       script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
       script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+      script(type='text/javascript', src='../javascript/modernizr.js')
       script(type='text/javascript', src='../javascript/flowtype.js')
       script(type='text/javascript', src='../javascript/jquery.fittext.js')
   body
@@ -114,18 +115,31 @@ html
       $('h1.expand').click(function(){
         $("ul.navi").toggleClass("hide", 300);
         $('ul.navi>li.tag').toggleClass('children');
-        if(w < 559 && menu.is(':visible')){
-          menu.slideToggle();
-        }
+        
       });
 
 
-      ///NEED MODERNIZR
-      $(window).resize(function () {
-         if(w > 559){
-          menu.show();
-        }
+      
+
+
+
+      var w = $(window).width();
+
+      $(window).bind('resize', function(){
+          if (Modernizr.mq('(orientation: portrait) and (min-width: 574px)')) {
+            if(w > 642 && menu.is(':hidden')) {
+              menu.removeAttr('style');
+              }
+          } else if (Modernizr.mq('only screen and (max-width: 573px)')) {
+            $('h1.expand').click(function(){
+              if(menu.is(':visible')){
+                menu.slideToggle();
+              }
+            });
+          } 
       });
+
+      
 
 
       $('.nav-tablet').click(function() {
@@ -134,7 +148,6 @@ html
           $('.about').toggleClass("about-slide");
       });
 
-      var w = $(window).width();
       var menu    = $('ul.nav');
       $(function() {
         var pull    = $('#pull');
