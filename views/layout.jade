@@ -13,6 +13,7 @@ html
       script(type='text/javascript', src='../javascript/modernizr.js')
       script(type='text/javascript', src='../javascript/flowtype.js')
       script(type='text/javascript', src='../javascript/jquery.fittext.js')
+      script(type='text/javascript', src='../javascript/respond.js')
   body
     block work
       div.gradient
@@ -41,6 +42,7 @@ html
             span.icon-bar
 
         h1.expand Tags
+          .mobile-nav
           .brand-gradient.three
         ul.navi.nav-list 
           li.nav-header 
@@ -56,12 +58,11 @@ html
             
             #mc_embed_signup
               form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
-                input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='required')
-                div.form
+                input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='')
+                div(style='position: absolute; left: -5000px;')
                   input(type='text', name='b_e1cf44a59fecbe47cda7b5e61_b2b4f9b0fa', value='')
-                .clear
-                  input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
-              .notification_container
+                input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+              #notification_container
 
      
       .wrap
@@ -85,7 +86,8 @@ html
 
           .span8
             block content
-
+        footer
+          p Nathan Zankich 2014
   
   block script          
     script.
@@ -118,35 +120,66 @@ html
         
       });
 
+      $('.nav-tablet').click(function() {
+          $('nav.bar').toggleClass("tablet", 100);
+          menu.show();
+          $('.about').toggleClass("about-slide");
+      });
 
       
 
 
 
       var w = $(window).width();
+      var h = document.documentElement.clientHeight;
+      var bottom = $('.bottom');
+      
+      // About height
+      $(function() {
+        var z = (h);
+        if(h< 590){
+          $("img.self").hide();
+        }
+        if(h< 490){
+          $("img.self, h1.about-me").hide();
+        }
+        if(h< 490){
+          $("img.self, h1.about-me, .me").hide();
+          bottom.css({"top":"70%"})
+        }
+      });
 
-      $(window).bind('resize', function(){
-          if (Modernizr.mq('(orientation: portrait) and (min-width: 574px)')) {
-            if(w > 642 && menu.is(':hidden')) {
-              menu.removeAttr('style');
-              }
-          } else if (Modernizr.mq('only screen and (max-width: 573px)')) {
+      ///for mobile nav
+      function checkMq() {
+          if (Modernizr.mq('(min-width: 585px)')) {
             $('h1.expand').click(function(){
+              menu.show(slow);
+            });
+            
+          } else if (Modernizr.mq('(max-width:584px) and (min-width: 0px)')) {
+            $('.mobile-nav').click(function(){
               if(menu.is(':visible')){
                 menu.slideToggle();
+                e.preventDefault();
               }
             });
           } 
+      }
+
+      $(function() {
+          // the call to checkMq here will execute after the document has loaded
+          checkMq();
+
+          $(window).resize(function() {
+              // the call to checkMq here will execute every time the window is resized
+              checkMq();
+          });
+
+          // you can add other listeners here click, hover, etc.  
       });
 
       
 
-
-      $('.nav-tablet').click(function() {
-          $('nav').toggleClass("tablet", 100);
-          menu.show();
-          $('.about').toggleClass("about-slide");
-      });
 
       var menu    = $('ul.nav');
       $(function() {
@@ -164,8 +197,8 @@ html
         });
 
 
-        $(window).resize(function(){
-          if(w > 642 && menu.is(':hidden')) {
+      $(window).resize(function(){
+          if(w > 584) {
             menu.removeAttr('style');
           }
         });
@@ -180,6 +213,38 @@ html
         }
       }
 
+      $(function () {
+        var $form = $('#mc-embedded-subscribe-form');
+       
+        $('#mc-embedded-subscribe').on('click', function(event) {
+          if(event) event.preventDefault();
+          register($form);
+        });
+      });
+
+      function register($form) {
+        $.ajax({
+          type: $form.attr('method'),
+          url: $form.attr('action'),
+          data: $form.serialize(),
+          cache       : false,
+          dataType    : 'json',
+          contentType: "application/json; charset=utf-8",
+          error       : function(err) { $('#notification_container').html('<span class="alert">Could not connect to server. Please try again later.</span>'); },
+          success     : function(data) {
+            
+            if (data.result != "success") {
+              var message = data.msg.substring(4);
+              $('#notification_container').html('<span class="alert">'+message+'</span>');
+            } 
+       
+            else {
+              var message = data.msg;
+              $('#notification_container').html('<span class="success">'+message+'</span>');
+            }
+          }
+        });
+      }
 
 
 

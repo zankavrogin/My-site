@@ -248,7 +248,7 @@ h2.design {
   margin-top:122px;
   opacity: .2;
   text-align:center;
-  left: 9%;
+  left: 9.5%;
   position: fixed;
   width: 81%;
 }
@@ -427,49 +427,6 @@ nav:hover{
   font-size:110%;
 }
 
-.lines{
-  top: 110px;
-  left: -100px;
-  position: relative;
-  .transition(.5s ease-in-out)
-}
-
-.line-1, .line-2, .line-3, .line-4{
-  float: right;
-  height: 1px;
-  position: absolute;
-  z-index: -1;
-  .rotate(35deg);
-  opacity: .8;
-  background: #6F6F6F;
-  left: 33px;
-  margin-top: 30px;
-  width: 52px;
-  box-shadow: -28px 1px black;
-}
-
-.line-2{
-  margin-top: -54px;
-  width: 100px;
-  left: -12px;
-  box-shadow: 22px 1px black;
-}
-
-.line-3{
-  left: 37px;
-  margin-top: 18px;
-  width: 100px;
-  box-shadow: -22px 1px #000;
-}
-
-.line-4{
-  left: 1px;
-  margin-top: -97px;
-  width: 52px;
-  box-shadow: 16px 1px black
-}
-
-
 div.post{
   margin-bottom: 30px;
   .box-shadow(0 1px 0px rgba(34, 2, 2, 0.8));
@@ -502,7 +459,7 @@ p:last-child > a{
 }
 
 .span8{
-width: 85%;
+width: 80%;
 max-width: 1000px;
 display: block;
 position: relative;
@@ -572,7 +529,6 @@ nav.bar {
  
   text-indent: -59px;
   overflow: hidden;
-  overflow-y: visible;
 
 
   &:hover{
@@ -600,7 +556,6 @@ nav.bar {
   margin-left:0%;
   min-width: 100px;
   overflow: hidden;
-  //overflow-y: visible;
   .transition(0.5s ease-in-out);
   
   h1.expand{
@@ -675,12 +630,14 @@ p.me{
 }
 }
 
-
+ul.pagination{
+  display:none;
+}
 
 footer>p{
   color: white;
-  font: 200 12px/18px titillium;
-  margin-left: 3%;
+  font: 200 12px/36px titillium;
+  margin-left: 10%;
 }
 
 

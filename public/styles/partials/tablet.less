@@ -1,6 +1,6 @@
 @media only screen 
 and (max-width: 699px) 
-and (min-width: 573px){
+and (min-width: 585px){
  
 div.back{
   width: 100%;
@@ -64,6 +64,7 @@ p.top{
   text-align: left;
   color: black;
   margin-top: -2%;
+  opacity:.2;
 }
 
 .art{
@@ -217,6 +218,10 @@ h1.expand{
   cursor:pointer;
 }
 
+.mobile-nav{
+  display:none;
+}
+
 nav:hover{
   h1.expand{
   }
@@ -241,7 +246,6 @@ nav:hover{
   .animation(expand ease-out .5s);  
   .animation-fill-mode(forwards);  
   .animation-duration(.5s);
-  .transition-delay(1s);
   a{
     color: #8B7575;;
   }  
@@ -285,8 +289,8 @@ nav.bar, .out {
   background-size: 1043%; 
   text-indent: -99px;
   left: -8.5%; 
-  overflow-y: overlay;
-  .transition(left .5s);
+  .transition(left .5s ease-out);
+  overflow: hidden;
   
   .lines{
     left: 0;
@@ -300,6 +304,7 @@ nav.bar, .out {
   ul>li>a>.brand-gradient{
     background-position:-100% 0;
   }
+  
 }
 
 .wrap{
@@ -417,7 +422,7 @@ p>a{
 }
 
 .span8{
-  width: 85%;
+  width: 80%;
   display: block;
   position: relative;
   margin: 0 0 0 50px;
@@ -491,8 +496,8 @@ ul.pagination{
 
 
 .nav-tablet{
-  height: 20px;
-  width: 6%;
+  height: 30px;
+  width: 10%;
   min-width: 30px;
   display: block;
   float: left;

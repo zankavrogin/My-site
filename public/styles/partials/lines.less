@@ -65,3 +65,46 @@
   right: 51%;
   .rotate(67deg);
 }
+
+.lines{
+  top: 110px;
+  left: -100px;
+  position: relative;
+  .transition(.5s ease-in-out)
+}
+
+.line-1, .line-2, .line-3, .line-4{
+  float: right;
+  height: 1px;
+  position: absolute;
+  z-index: -1;
+  .rotate(35deg);
+  opacity: .8;
+  background: #6F6F6F;
+  left: 33px;
+  margin-top: 30px;
+  width: 52px;
+  box-shadow: -28px 1px black;
+}
+
+.line-2{
+  margin-top: -54px;
+  width: 100px;
+  left: -12px;
+  box-shadow: 22px 1px black;
+}
+
+.line-3{
+  left: 37px;
+  margin-top: 18px;
+  width: 100px;
+  box-shadow: -22px 1px #000;
+}
+
+.line-4{
+  left: 1px;
+  margin-top: -97px;
+  width: 52px;
+  box-shadow: 16px 1px black
+}
+
