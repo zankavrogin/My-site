@@ -1,3 +1,9 @@
+mixin ie(condition)
+  | <!--[!{condition}]>
+  block
+  | <![endif]-->
+
+
 doctype html
 html
   head
@@ -14,6 +20,11 @@ html
       script(type='text/javascript', src='../javascript/flowtype.js')
       script(type='text/javascript', src='../javascript/jquery.fittext.js')
       script(type='text/javascript', src='../javascript/respond.js')
+      +ie('if IE 8')
+        script(type='text/javascript', src='../javascript/html5shiv.js')
+        link(rel="stylesheet",href="/css/foundation3/ie.css")
+        
+
   body
     block work
       div.gradient
@@ -54,7 +65,7 @@ html
           .bottom
             img.self(src='../images/self.png', alt='')
             h1.about-me About
-            p.me I am a community college student/ philosopher/ dunce interested in art, design. music and web development. I try to make sense.
+            p.me I am a community college student learning web development interested in art, design, music and coding. I try to make sense.
             
             #mc_embed_signup
               form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
@@ -67,8 +78,8 @@ html
      
       .wrap
         .header
-          h2.design.radio RADIO
-          h2.design SCHIZO
+          a.design.radio(href='/') RADIO
+          a.design(href='/') SCHIZO
         .row
           .blur
           article.blog
