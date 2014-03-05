@@ -1,8 +1,3 @@
-mixin ie(condition)
-  | <!--[!{condition}]>
-  block
-  | <![endif]-->
-
 
 doctype html
 html
@@ -11,6 +6,7 @@ html
       title= 'Nathan Zankich'
       meta(charset='utf-8')
       meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+      link(rel='icon', type='image/icon', href='public/images/favicon.ico')
 
       link(rel='stylesheet', href='/styles/main.css')
       link(rel='stylesheet', href='/styles/mailchimp.css')
@@ -20,10 +16,6 @@ html
       script(type='text/javascript', src='../javascript/flowtype.js')
       script(type='text/javascript', src='../javascript/jquery.fittext.js')
       script(type='text/javascript', src='../javascript/respond.js')
-      +ie('if IE 8')
-        script(type='text/javascript', src='../javascript/html5shiv.js')
-        link(rel="stylesheet",href="/css/foundation3/ie.css")
-        
 
   body
     block work
@@ -146,20 +138,25 @@ html
       var bottom = $('.bottom');
       
       // About height
-      $(function() {
-        var z = (h);
-        if(h< 600){
-          $("img.self").hide();
-        }
-        if(h< 490){
-          $("img.self, h1.about-me").hide();
-        }
-        if(h< 490){
-          $("img.self, h1.about-me, .me").hide();
-          bottom.css({"top":"70%"})
-        }
-      });
 
+      function about() {
+          var z = (h);
+          if(h< 600){
+            $("img.self").hide();
+          }
+          if(h< 490){
+            $("img.self, h1.about-me").hide();
+          }
+          if(h< 490){
+            $("img.self, h1.about-me, .me").hide();
+            bottom.css({"top":"70%"})
+          }
+      };
+
+
+      $(document).ready(about);
+      $(window).on('resize',about);
+      
       ///for mobile nav
       function checkMq() {
           if (Modernizr.mq('(min-width: 585px)')) {
