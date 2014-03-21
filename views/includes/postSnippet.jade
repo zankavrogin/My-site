@@ -2,9 +2,10 @@ div.post
   h3
     a.capitalize(href=post.url)
       = post.title
-  span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
   div.content
     != post.preview
+    a.read-more
+      img.arrow(src='../images/arrow.svg', alt='')
   div.tags
     - each tag in post.tags
       a(href=tagUrl(tag))

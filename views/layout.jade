@@ -19,8 +19,6 @@ html
 
   body
     block work
-      div.gradient
-        div.sub
       nav.bar
         .nav-tablet
               span.icon-tablet
@@ -29,15 +27,10 @@ html
         ul.nav
           li.nav
             a.brand(href='/') Blog
-              .brand-gradient
+              .active
           li.nav 
             a.brand(href='/work') Work
-              .brand-gradient.two
-        .lines
-          .line-1
-          .line-2
-          .line-3
-          .line-4
+              .active
         a#pull
           .nav-button
             span.icon-bar
@@ -47,7 +40,7 @@ html
         h1.expand Tags
           .mobile-nav
           .brand-gradient.three
-        ul.navi.nav-list 
+        ul.navi
           li.nav-header 
           - each tag in getTags()
             li.tag
@@ -57,7 +50,7 @@ html
           .bottom
             img.self(src='../images/self.png', alt='')
             h1.about-me About
-            p.me I am a community college student learning web development interested in art, design, music and coding. I try to make sense.
+            p.me 
             
             #mc_embed_signup
               form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
@@ -73,47 +66,25 @@ html
           a.design.radio(href='/') RADIO
           a.design(href='/') SCHIZO
         .row
-          .blur
           article.blog
-            p.top thinking too much
-            .line
-            .line-two
-            .line-three
-            .line-four
-            .line-five
-            .line-six
-            .line-seven
-            .line-eight
-            .line-nine
-            .line-ten
+            img.self(src='../images/self-circle.png', alt='')
+            p.top I am a college student learning web development interested in art, design, music and coding. These are my attempts to put my thoughts into English.
 
           .span8
             block content
         footer
           p Nathan Zankich 2014
   
-  block script          
     script.
-      $(window).bind('scroll', function() {
-           if ($(window).scrollTop() > 330) {
-             $('nav.bar').addClass('out').removeClass('bar');
-            }
-           else {
-               $('nav').removeClass('out').addClass('bar');
-           }
-      });
-
-
+    
       $(document).ready(function() {
         $("ul.navi").addClass("hide")
       });
 
-    
-
       $(window).scroll(function() {
           var el = $('.header');    
           var offset = el.offset();  
-          var opacity = ( ((offset.top * 1.5) - el.height() -100) /1000 ) * -1.2;
+          var opacity = ( ((offset.top * 1.5) - el.height() -100) /1000 ) * -2.5;
           $('.header').css('opacity', opacity );
       });
  
@@ -129,34 +100,12 @@ html
           $('.about').toggleClass("about-slide");
       });
 
-      
-
-
-
       var w = $(window).width();
       var h = document.documentElement.clientHeight;
       var bottom = $('.bottom');
       
-      // About height
-
-      function about() {
-          var z = (h);
-          if(h< 600){
-            $("img.self").hide();
-          }
-          if(h< 490){
-            $("img.self, h1.about-me").hide();
-          }
-          if(h< 490){
-            $("img.self, h1.about-me, .me").hide();
-            bottom.css({"top":"70%"})
-          }
-      };
 
 
-      $(document).ready(about);
-      $(window).on('resize',about);
-      
       ///for mobile nav
       function checkMq() {
           if (Modernizr.mq('(min-width: 585px)')) {
@@ -214,12 +163,6 @@ html
 
       jQuery(".design").fitText(.4, { minFontSize: '80px', maxFontSize: '150px' })
 
-      window.onload = function(){
-        var elements = document.getElementsByClassName("capitalize")
-        for (var i=0; i<elements.length; i++){
-          elements[i].innerHTML = elements[i].innerHTML.replace(/\b([a-z])([a-z]+)?\b/gim, "<span class='first-letter'>$1</span>$2")
-        }
-      }
 
       $(function () {
         var $form = $('#mc-embedded-subscribe-form');
@@ -253,7 +196,6 @@ html
           }
         });
       }
-
 
 
       

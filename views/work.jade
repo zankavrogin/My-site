@@ -19,11 +19,6 @@ block work
           li.nav 
             a.brand(href='/work') Work
               .brand-gradient.two
-      .lines
-          .line-1
-          .line-2
-          .line-3
-          .line-4
       a#pull
         .nav-button
           span.icon-bar
@@ -67,7 +62,6 @@ block work
         a.design.radio RADIO
         a.design SCHIZO
       .row
-        .blur
         article.main
           p.main.
             Through my art I try to bring dream-like imagery into the real world. Every night there is the possibility drift off to unfamiliar places, most of the time never to be seen or remembered again. These images we see in our dreams should be remembered. The world has many beautiful places, but everything is limited by utility and gravity. Our mind knows no such limits. 
@@ -125,19 +119,11 @@ block work
 
 
 
-      $(window).bind('scroll', function() {
-           if ($(window).scrollTop() > 330) {
-             $('nav.bar').addClass('out').removeClass('bar');
-            }
-           else {
-               $('nav').removeClass('out').addClass('bar');
-           }
-      });
-
+      
       $(window).scroll(function() {
           var el = $('.header');    
           var offset = el.offset();  
-          var opacity = ( ((offset.top * 3.2) - el.height() -100) /1200 ) * -1.2;
+          var opacity = ( ((offset.top * 3.2) - el.height() -100) /1200 ) * -6.2;
           $('.header').css('opacity', opacity );
       });
 
