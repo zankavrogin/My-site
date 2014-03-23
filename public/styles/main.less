@@ -30,6 +30,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 @import url(http://fonts.googleapis.com/css?family=Dosis: 200, 300, 400, 500, 600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
 
 
 @import 'prefixer.less';
@@ -71,7 +72,6 @@ body{
 }
 
 .wrap{
-  width: 80%;
   position: relative;
   height: 100%;
   float:left;
@@ -93,7 +93,7 @@ body{
     a.design {
       font: 300 150px/30px Market;
       color: black;
-      margin-top:192px;
+      margin-top:175px;
       opacity: .2;
       text-align:center;
       left: 9.5%;
@@ -160,40 +160,63 @@ body{
         color:rgb(43, 9, 9);
         text-align: center;
         a{
-          color: #1D2931;
+          color: #000;
         }
       }
+      .bold{
+         font: 700 50px/70px open sans condensed,sans-serif;
+         margin-bottom: 10%;
+         text-align: left;
+       }
       .content, p {
         margin: 0 0 9px;
-        font-family: dosis, sans-serif;
+        font-family: droid serif,dosis, sans-serif;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 25px;
         -webkit-font-smoothing: antialiased;
-        width: 80%;
-        margin: 0 auto;
-        text-align: center;
+        width: 100%;
+        margin: 0 auto 2%;
+        text-align: left;
+        p{
+            a{
+              margin: 2% 0 0 19%;
+              padding: 0 25% 28% 25%;
+              opacity: 0;
+            }
+        }
         img{
           width: 414px;
           margin: 0 auto;
           display: block;
+          padding: 26px 0 13px 0;
+
+        }
+      }
+      .preview{
+        width: 80%;
+        p{
+          font-family: dosis, sans-serif;
+          text-align: center;
+          margin: 0 auto 1%;
         }
       }
       pre{
-        background: #D6D6D6;
-        padding: 5% 0 0 2%;
+        background: #A0A1AD;
+        padding: 9% 0 0 2%;
+        overflow: scroll;
       }
       img.arrow{
         width: 30px;
         margin: 0 auto;
       }
       div.tags{
-        font-family: dosis, sans-serif;
-        font-size: 14px;
+        font: 200 14px/29px open sans,sans-serif;
         opacity:.8;
         a{
           padding-right:5px;
+          color: black;
         }
       }
       p:last-child{
@@ -253,6 +276,22 @@ article.main{
         background: black;
         z-index:1;
         opacity:0;
+      }
+      .transition{
+        background: rgba(0,0,0, 0.5);
+        -webkit-transition:-webkit-transform 0.5s ease-in-out;
+        transition:transform 0.5s ease-in-out;
+        z-index:1;
+        opacity:1;
+        top:-100%;
+        right: -100%;
+        margin: 0 0 100% 100%;
+        .transform( translate(-100%, 100%));
+      }
+      .transition-out{
+        -webkit-transition: -webkit-transform  0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
+        .transform(translate(100%, -100%));
       }
         h2{
           font: 300 25px/30px  open sans, sans serif;

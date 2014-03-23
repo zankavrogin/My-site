@@ -1,5 +1,5 @@
 /* MailChimp Form Embed Code - Slim - 08/17/2011 */
-#mc_embed_signup form {display: block; position: relative; text-align: left; padding: 10px 0 10px 0; }
+#mc_embed_signup form {display: block; position: relative; padding: 10px 0 10px 0; float: right; width: 100%}
 #mc_embed_signup h2 {font-weight: bold; padding: 0; margin: 15px 0; font-size: 1.4em; }
  
 #mc_embed_signup input { border: 2px solid #533232;  }
@@ -8,39 +8,48 @@
 #mc_embed_signup input:focus { border-color: #799877; }
  
 #mc_embed_signup .button {
-  display: block;
   position: relative;
-  background-color: #241818;
-  padding: 0;
-  margin: 0 auto;
-  border: 0 none;
-  border-radius: 30px;
-  color: #fff; 
-  cursor: pointer;
-  font-size: 12px;
-  width: 85%;
+  background-color: rgba(36, 24, 24, 0);
   height: 36px;
   line-height: 36px;
-  text-align: center;
+  margin: 0px 0 0 100%;
+  padding: 5px 0px;
+  cursor: pointer;
   text-decoration: none;
-  vertical-align: top;
+  color: #ffffff;
+  border: none;
+  float: left;
+  font: 300 16px/20px open sans, sans serif;
+  background: url('../images/mail.svg');
+  background-size: 24px 35px;
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+  width: 105px;
+  text-align: right;
 }
-#mc_embed_signup .button:hover { background-color: #443333; border-bottom-color: #7fac69; }
+#mc_embed_signup .button:hover { color: grey;  }
 #mc_embed_signup .button:active { top: 2px; border-bottom-width: 1px; }
 
 #mc_embed_signup{
   //background:#fff; 
   clear:left; 
+  top: 27px;
+  position: relative;
   text-align: center;
   font:12px Helvetica,Arial,sans-serif; 
 }
 
 #mc_embed_signup input.email {
-display: block;
-padding: 4px 0;
-margin: 0 auto 10px;
-text-indent: 5px;
-width: 90%;
+  margin: -9px -25px 0 0;
+  padding: 5px 0px 5px 12px;
+  font-family: open sans;
+  color: #BCD1D1;
+  font-size: 14px;
+  border: none;
+  background-color: #304c4c;
+  display: block;
+  width: 310%;
+  max-width: 215px;
 }
 
 

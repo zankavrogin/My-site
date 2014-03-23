@@ -18,40 +18,47 @@ html
       script(type='text/javascript', src='../javascript/respond.js')
 
   body
-    block work
-      nav.bar
-        .nav-tablet
-              span.icon-tablet
-              span.icon-tablet
-              span.icon-tablet
-        ul.nav
-          li.nav
-            a.brand(href='/') Blog
-              .active
-          li.nav 
-            a.brand(href='/work') Work
-              .active
-        a#pull
-          .nav-button
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+    nav.bar
+      .nav-tablet
+            span.icon-tablet
+            span.icon-tablet
+            span.icon-tablet
+      ul.nav
+        li.nav
+          a.brand(href='/') Blog
+            .active
+        li.nav 
+          a.brand(href='/work') Work
+            .active
+      a#pull
+        .nav-button
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
 
-        h1.expand Tags
-          .mobile-nav
-          .brand-gradient.three
-        ul.navi
-          li.nav-header 
-          - each tag in getTags()
-            li.tag
-              a(href=tagURL(tag)) #{tag}
-
-        .about
-          .bottom
-            img.self(src='../images/self.png', alt='')
-            h1.about-me About
-            p.me 
-            
+      
+      .arrow-button
+      ul.sub-nav
+        .search-wrap
+          form.search(method='get', action='http://www.google.com')
+              input.search-input(type='text', name='q', size='21', maxlength='120')
+              input.search-button(type='submit', value='Search')
+            .tfclear
+        block nav
+          li.sub-nav Tags
+            .mobile-nav
+            ul.navi
+              li.nav-header 
+              - each tag in getTags()
+                li.tag
+                  a(href=tagURL(tag)) #{tag}
+        li.sub-nav.left Find Me
+          .social-container
+            a.social(href='twitter.com')
+              img.social(src='../images/twitter.svg', alt='')
+            a.social(href='http://www.behance.com')
+              img.social(src='../images/behance.svg', alt='')
+        li.sub-nav.left 
             #mc_embed_signup
               form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
                 input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='')
@@ -60,26 +67,40 @@ html
                 input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
               #notification_container
 
-     
-      .wrap
-        .header
-          a.design.radio(href='/') RADIO
-          a.design(href='/') SCHIZO
-        .row
+      
+
+   
+    .wrap
+      .header
+        a.design.radio(href='/') RADIO
+        a.design(href='/') SCHIZO
+      .row
+        block article
           article.blog
             img.self(src='../images/self-circle.png', alt='')
             p.top I am a college student learning web development interested in art, design, music and coding. These are my attempts to put my thoughts into English.
 
           .span8
             block content
-        footer
-          p Nathan Zankich 2014
+      footer
+        p Nathan Zankich 2014
   
     script.
-    
-      $(document).ready(function() {
-        $("ul.navi").addClass("hide")
+
+      $(function() {
+           var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+           $(".bar ul.nav li.nav a.brand").each(function(){
+                if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+                $(this).addClass("active");
+           })
       });
+
+      $('.arrow-button').click(function(){
+        $(".sub-nav").toggleClass("expand", 300);
+        
+      });
+    
+      
 
       $(window).scroll(function() {
           var el = $('.header');    
@@ -88,11 +109,7 @@ html
           $('.header').css('opacity', opacity );
       });
  
-      $('h1.expand').click(function(){
-        $("ul.navi").toggleClass("hide", 300);
-        $('ul.navi>li.tag').toggleClass('children');
-        
-      });
+      
 
       $('.nav-tablet').click(function() {
           $('nav.bar').toggleClass("tablet", 100);
