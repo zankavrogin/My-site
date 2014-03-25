@@ -3,10 +3,10 @@
 
   exports = module.exports = function(app) {
     app.get('/', function(req, res) {
-      return res.render('index', {homeVar: 'home'});
+      return res.render('index');
     });
     return app.get('/work', function(req, res) {
-      return res.render('work', {workVar: 'work'});
+      return res.render('work');
     });
   };
 
