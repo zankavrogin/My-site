@@ -28,7 +28,7 @@ nav.bar {
         font:200 25px/35px dosis, sans serif;
         color: #fff;
         width:10%;
-        text-shadow: 0px 4px 0px black; 
+        text-shadow: 0px 2px 2px black; 
         &:hover{
           opacity: 1;
         }
@@ -36,29 +36,38 @@ nav.bar {
            background-position:-100% 0;
         }
       }
-        .active{
+        .current >.active{
           background-color: #B83B35;
           margin: -51px 0 0 -4px;
-          width: 54%;
+          width: 55px;
           height: 5px;
         }
-      
+  .sub-nav{
+    margin: 0px 0px 0 0;
+    width: 100%;
+    float: right;
+    height: 0px;
+    top: -3px;
+    position: relative;
+    background-color: #172424;
+    overflow: hidden;
+  }    
   li.sub-nav{
     font: 300 19px/28px open sans,arial,times;
     color: white;
     padding-right: 11%;
     position: relative;
-    display: block;
     height: 30px;
     cursor: pointer;
     float: right;
     width: 6%;
     top: 0;
+    list-style:none;
   }
-  .left{
-    float: left !important;
-    margin-left: 28px !important;
-    padding-right: 25px !important;
+  ul.sub-nav> .left{
+    float: left  ;
+    margin-left: 28px  ;
+    padding-right: 25px  ;
   }
   .social-container{
     width: 100px;
@@ -88,16 +97,6 @@ nav.bar {
         cursor: pointer;
       }
     }
-    .sub-nav{
-      margin: 0px 0px 0 0;
-      width: 100%;
-      float: right;
-      height: 0px;
-      top: 30px;
-      position: relative;
-      background-color: #172424;
-      overflow: hidden;
-    }
     .search-wrap{
       background-color:#c3dfef; 
     }
@@ -114,7 +113,6 @@ nav.bar {
           font-size: 14px;
           border: none;
           background-color: #304c4c;
-          display: block;
           width: 75%;
           float: right;
         }
@@ -163,7 +161,6 @@ nav.bar {
     } 
     .tag{
         overflow: hidden;
-        display: block;
         height: 26px;
         width: 55px;
         float: left;
@@ -179,3 +176,4 @@ nav.bar {
     .tag:nth-child(odd){
       //background: #1E3838;
       }
+      
