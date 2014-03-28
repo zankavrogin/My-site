@@ -7,12 +7,6 @@
   src: url('../fonts/Dosis-ExtraLight.otf');
 }
 
-@font-face{
-  font-family: titillium;
-  src: url('../fonts/Titillium-Light-webfont.eot');
-  src: url('../fonts/Titillium-Light-webfont.eot?#iefix') format('embedded-opentype'),    
-  url('../fonts/Titillium-Light.otf');
-}
 
 @font-face{
   font-family: exist;
@@ -34,8 +28,6 @@
 
 
 @import 'prefixer.less';
-@import 'partials/tablet';
-@import 'partials/mobile';
 @import 'partials/navigation';
 @import 'partials/keyframes';
 @import 'partials/variables';
@@ -56,24 +48,18 @@ button:hover {
 }
 h1, h3, h4, h5, h6 {
 margin: 0;
-font-weight: bold;
-color: #333333;
+color: white;
 text-rendering: optimizelegibility;
-font: 200 27px/25px dosis;
+font: 200 16px/25px dosis;
 }
 html{ 
   background-color: white;
 }
-
-@media only screen and (min-width: 700px) {
-  
 body{
   margin: 0;
 }
 
 .wrap{
-  position: relative;
-  height: 100%;
   float:left;
   width:80%;
   margin-left: 10%;
@@ -83,13 +69,13 @@ body{
     width: 100%;
     height: 323px;
     position: fixed;
-    display: block;
-    z-index: 1;
     background-size: 100%;
-    background-image: url('../images/head.jpg');
+    background-image: url('../images/header.jpg');
     background-attachment: fixed;
     left:0;
-    opacity: 1;
+    @media only screen and (max-width:@medium-screen) {
+      background-size: 200%;  
+   }
   }
     a.design {
       font: 300 150px/30px Market;
@@ -108,20 +94,12 @@ body{
       top: -19px;
     }
   .row{
-    height: 100%;
-    min-height: 1000px;
-    width: 100%;
     background-color: white;
-    display: block;
-    z-index: 14;
-    margin-top: 42px;
     position: relative;
-    padding-bottom: 250px;
+    min-height: 500px;
   }
-  article.blog{
+  div.top{
     width: 77%;
-    display: block;
-    position: relative;
     margin: 332px auto 0;
     font: 300 22px/30px open sans;
     text-align: center;
@@ -129,36 +107,50 @@ body{
     overflow: hidden;
   }
     img.self{
-      width: 110px;
-      margin: -7% -15% 0 100%;
-      position: relative;
+      max-width: 110px;
+      margin: -7% 2% 0 -10%;
       float: right;
+      @media only screen and (max-width:@medium-screen) {
+        width: 31%;
+      }
     }
     p.top{
-      font: 300 14px/18px open sans condensed,dosis,sans serif;
-      text-align: left;
+      font: 300 14px/18px open sans condensed,sans serif;
       color: black;
-      float: right;
-      margin: -17.2% -20% 0 0;
-      width: 111%;
-      padding: 31px 5px 9px 0px;
+      float: left;
+      width: 70%;
+      @media only screen and (max-width:@medium-screen) {
+        width: 65%;
+      }
     }
-  .span8{
-    width: 80%;
-    max-width: 1000px;
-    display: block;
-    position: relative;
+  .blog{
     margin: 0 10%;
+    @media only screen and (max-width:@medium-screen) {
+        width: 80%;
+        margin:0 auto;
+      }
+    @media only screen and (max-width:@small-screen) {
+        width: 100%;
+      }
   }
     div.post{
       margin: 0 10% 30px;
-      .box-shadow(0 1px 0px rgba(34, 2, 2, 0.8));
+      .box-shadow(0 1px 0px rgba(34, 2, 2, 0.1));
+      @media only screen and (max-width:@medium-screen) {
+        margin: 0 0 30px;
+      }
     }
       h3 {
-        font: 500 35px/35px open sans condensed,sans-serif;
+        font: 300 40px/50px open sans condensed,sans-serif;
         margin-bottom: 20px;
         color:rgb(43, 9, 9);
         text-align: center;
+        @media only screen and (max-width:@medium-screen) {
+           font: 700 35px/45px open sans condensed,sans-serif;
+         }
+         @media only screen and (max-width:@small-screen) {
+           font: 700 30px/40px open sans condensed,sans-serif;
+         }
         a{
           color: #000;
         }
@@ -167,14 +159,16 @@ body{
          font: 700 50px/70px open sans condensed,sans-serif;
          margin-bottom: 10%;
          text-align: left;
+         @media only screen and (max-width:@medium-screen) {
+           font: 700 40px/60px open sans condensed,sans-serif;
+         }
+         @media only screen and (max-width:@small-screen) {
+           font: 700 30px/42px open sans condensed,sans-serif;
+         }
        }
       .content, p {
         margin: 0 0 9px;
-        font-family: droid serif,dosis, sans-serif;
-        font-weight: normal;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 25px;
+        font-size: 400 18px/25px droid serif,dosis, sans-serif;
         -webkit-font-smoothing: antialiased;
         width: 100%;
         margin: 0 auto 2%;
@@ -187,20 +181,20 @@ body{
             }
         }
         img{
-          width: 414px;
+          width: 100%;
+          max-width: 414px;
           margin: 0 auto;
           display: block;
           padding: 26px 0 13px 0;
-
+        }
+        @media only screen and (max-width:@medium-screen) {
+          font-size: 400 16px/22px droid serif,dosis, sans-serif;
         }
       }
-      .preview{
-        width: 80%;
-        p{
+      .preview p{
           font-family: dosis, sans-serif;
           text-align: center;
           margin: 0 auto 1%;
-        }
       }
       pre{
         background: #A0A1AD;
@@ -212,43 +206,35 @@ body{
         margin: 0 auto;
       }
       div.tags{
-        font: 200 14px/29px open sans,sans-serif;
+        font: 200 12px/17px open sans,sans-serif;
         opacity:.8;
         a{
           padding-right:5px;
           color: black;
         }
       }
-      p:last-child{
-        //display: none;
-      }
-
 //WORK
-article.main{
-  background-color: white;
-  top: 50px;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  position: relative;
-  margin: 335px 0 0 0px;
-}
   p.main{
-    font: 300  18px/25px open sans condensed, sans-serif;
-    top: 0;
+    font: 300 18px/25px open sans condensed, sans-serif;
     text-align: center;
-    width: 72%;
-    margin: 0 0 -3% 11%;
-    padding-top: 1%;
+    margin: 0 0 -5% 0%;
+    @media only screen and (max-width:@medium-screen) {
+      font: 300 14px/18px open sans condensed, sans-serif;
+    }
   }
+  @media only screen and (max-width:@small-screen) {
+        .collapse{
+          text-align: center;
+        }
+      }
+  
     .art{
-      display: block;
       position: relative;
-      width:100%;
       max-width: 1000px;
       height: auto;
       margin: 0 auto;
       left: 3%;
+      z-index:0;
     }
       a.fancybox{
         width: 27%;
@@ -265,11 +251,26 @@ article.main{
         &:hover{
           opacity:1;
         }
+        @media only screen and (max-width:@medium-screen) {
+          width: 37%;
+          left: 7%;
+          box-shadow: 1px 1px 3px black;
+        }
+        @media only screen and (max-width:@small-screen) {
+              width: 50%;
+              min-width: 130px;
+              left:0;
+              display: inline-block;
+              margin: 10px auto;
+              margin-right: 10px;
+              overflow: hidden; 
+              float: none;
+              box-shadow: 1px 1px 3px black;
+        }
       }
       .image-hover{
         color:white;
         position: absolute;
-        display: block;
         height: 100%;
         width: 100%;
         background: black;
@@ -295,19 +296,18 @@ article.main{
         h2{
           font: 300 25px/30px  open sans, sans serif;
           text-align: center;
-          color:white;
+          color: white;
           opacity:.4;
         }
       img.small{
         position: relative;
         display: block;
         width: 100%;
-        
-         &:hover{
-        cursor: pointer;
+        &:hover{
+          cursor: pointer;
         }
       }
-}
+
 ul.pagination{
   list-style: none;
   display:none;
@@ -315,6 +315,8 @@ ul.pagination{
 
 footer{
   background-color:white;
+  clear: both;
+  padding-top: 10%;
   p{
     color: black;
     font: 200 12px/18px open sans, sans serif;

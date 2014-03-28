@@ -12,18 +12,18 @@
   background-color: rgba(36, 24, 24, 0);
   height: 36px;
   line-height: 36px;
-  margin: 0px 0 0 100%;
+  margin: 0px;
   padding: 5px 0px;
   cursor: pointer;
   text-decoration: none;
   color: #ffffff;
   border: none;
-  float: left;
   font: 300 16px/20px open sans, sans serif;
   background: url('../images/mail.svg');
-  background-size: 24px 35px;
+  background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position-x: 5px;
+  background-position-y: 5px;
   width: 105px;
   text-align: right;
 }
@@ -48,7 +48,7 @@
   border: none;
   background-color: #304c4c;
   display: block;
-  width: 310%;
+  width: 290%;
   max-width: 215px;
 }
 
@@ -91,4 +91,48 @@ left: -5000px;
   line-height: 1.3em;
   font-weight: bold;
   background-color: #15200F;
+}
+
+@media only screen and (max-width:699px) {
+#mc_embed_signup{
+  top: 0;
+}
+
+#mc-embedded-subscribe-form{
+  width: 100%;
+  min-width: 390px;
+  text-align: center;
+}
+
+#mc_embed_signup input.email{
+  margin: 0;
+  max-width: 215px;
+  display: inline-block;
+  float: none;
+  margin-left: 13%;
+}
+
+#mc_embed_signup .button{
+  position: relative; */
+background-color: rgba(36, 24, 24, 0);
+margin: 0px 0 0 0%;
+padding: 5px 0px;
+cursor: pointer;
+text-decoration: none;
+color: #ffffff;font: 300 16px/20px open sans, sans serif;
+width: 110px;
+text-align: right;
+float: none;
+}
+}
+
+
+@media only screen and (max-width:400px) {
+  #mc-embedded-subscribe-form{
+    min-width: 0px;
+  }
+
+  #mc_embed_signup input.email{
+    width: 25%;
+  }
 }
