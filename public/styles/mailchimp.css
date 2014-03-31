@@ -65,32 +65,28 @@ left: -5000px;
 
 #notification_container .alert {
   display: block;
-  width: 100%;
   position: absolute;
-  top: 50%;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  top: -75%;
   color: #fff;
   font-size: 1.1em;
   line-height: 1.3em;
   font-weight: bold;
-  background-color: #772222;
+  padding: 1px 5px;
+  background-color: #B83B35;
+  box-shadow: 1px 1px 8px black;
 }
 
 #notification_container .success {
   display: block;
-  width: 100%;
   position: absolute;
-  top: 50%;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  top: -75%;
   color: #fff;
   font-size: 1.1em;
   line-height: 1.3em;
   font-weight: bold;
+  padding: 1px 5px;
   background-color: #15200F;
+  box-shadow: 1px 1px 8px black;
 }
 
 @media only screen and (max-width:699px) {
