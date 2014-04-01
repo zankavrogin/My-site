@@ -1,5 +1,9 @@
 (function() {
-  var Schema, UserSchema, crypto, mongoose;
+  var Schema, UserSchema, app, crypto, express, mongoose;
+
+  express = require("express");
+
+  app = express();
 
   crypto = require('ezcrypto').Crypto;
 
@@ -72,41 +76,11 @@
     return this.lastName = p[1];
   });
 
-  UserSchema.method('encryptPassword', function(plainText) {
-    return crypto.MD5(plainText || '');
-  });
-
-  UserSchema.method('setPassword', function(plainText) {
-    this.hashPassword = this.encryptPassword(plainText);
-    return this;
-  });
-
-  UserSchema.method('authenticate', function(plainText) {
-    return this.hashPassword === this.encryptPassword(plainText);
-  });
-
-  UserSchema.method('isPasswordless', function() {
-    var _ref;
-    return !((_ref = this.hashPassword) != null ? _ref.length : void 0);
-  });
-
-  UserSchema.pre('save', function(next) {
-    this.modified = Date.now();
-    if (this.isPasswordless()) {
-      return next(Error('No password specified'));
-    } else {
-      return next();
-    }
-  });
-
-  console.log("12");
-
   exports.UserSchema = module.exports.UserSchema = UserSchema;
 
-  exports.boot = module.exports.boot = function(app) {
-    mongoose.model('User', UserSchema);
-    return app.models.User = mongoose.model('User');
-  };
+  exports.boot = module.exports.boot = function(app) {};
+
+  mongoose.model('User', UserSchema);
 
   console.log("13");
 

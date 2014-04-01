@@ -1,3 +1,5 @@
+express = require("express")
+app      = express()
 crypto = require('ezcrypto').Crypto
 mongoose = require('mongoose')
 Schema = mongoose.Schema
@@ -53,33 +55,10 @@ UserSchema.virtual('name')
     @.lastName = p[1]
   )
 
-UserSchema.method 'encryptPassword', (plainText) ->
-    crypto.MD5(plainText or '')
-
-UserSchema.method 'setPassword', (plainText) ->
-  @.hashPassword = @.encryptPassword plainText
-  @
-
-UserSchema.method 'authenticate', (plainText) ->
-  this.hashPassword is this.encryptPassword plainText
-
-UserSchema.method 'isPasswordless', () ->
-  !(this.hashPassword?.length)
-
-UserSchema.pre 'save', (next) ->
-  @.modified = Date.now()
-  if @.isPasswordless()
-    next Error 'No password specified'
-  else
-    next()
-
-console.log("12")
-
 
 # Exports
 exports.UserSchema = module.exports.UserSchema = UserSchema
 exports.boot = module.exports.boot = (app) ->
-  mongoose.model 'User', UserSchema
-  app.models.User = mongoose.model 'User'
+mongoose.model 'User', UserSchema
 console.log("13")
 

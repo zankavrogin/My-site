@@ -12,7 +12,7 @@
   poet = require("poet");
 
   exports.boot = function(app) {
-    console.log("7");
+    console.log("7.1");
     poet = poet(app, {
       posts: "./_posts/",
       postsPerPage: 5,

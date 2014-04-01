@@ -5,8 +5,8 @@ fs        = require 'fs'
 poet = require("poet")
 
 
-exports.boot = (app) -> 
-  console.log("7")
+exports.boot = (app) ->
+  console.log("7.1")
   poet = poet(app,
     posts: "./_posts/"
     postsPerPage: 5

@@ -31,7 +31,8 @@ module.exports = (options) ->
   options = src: options  if typeof options is "string"
   baseDir = options.baseDir or process.cwd()
   src = options.src
-  throw new Error("Coffeescript middleware requires \"src\" directory")  unless src
+  throw
+  Snew Error("Coffeescript middleware requires \"src\" directory") unless src
   src = path.resolve(baseDir, src)
   dest = (if options.dest then options.dest else src)
   dest = path.resolve(baseDir, dest)

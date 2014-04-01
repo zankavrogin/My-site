@@ -5,13 +5,13 @@ exports.boot = module.exports.boot = (app) ->
 
     res.locals.loggedIn = !!(req.session?.auth?.loggedIn)
 
-    res.locals.messages = (require 'express-messages-bootstrap')(req);
+    res.locals.messages = (require 'express-messages-bootstrap')(req)
 
-    res.locals.domain = process.env.DOMAIN;
+    res.locals.domain = process.env.DOMAIN
 
-    res.locals.path = req.route?.path or "";
+    res.locals.path = req.route?.path or ""
 
-    res.locals.base = ('/' == app.route) ? '' : app.route;
+    res.locals.base = ('/' == app.route) ? '' : app.route
 
     res.locals.revision = app.settings.revision or ''
 
@@ -29,4 +29,7 @@ exports.boot = module.exports.boot = (app) ->
 
   app.locals.numberize = (number) ->
     r = number[-1..0]
-    if r is '1' then 'st' else if r is '2' then 'nd' else if r is '3' then 'rd' else 'th'
+    if r is '1' then 'st'
+    else if r is '2' then 'nd'
+    else if r is '3' then 'rd'
+    else 'th'

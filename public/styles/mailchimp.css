@@ -23,7 +23,7 @@
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position-x: 5px;
-  background-position-y: 5px;
+  background-position-y: 50%;
   width: 105px;
   text-align: right;
 }

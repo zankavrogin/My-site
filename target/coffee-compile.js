@@ -42,7 +42,7 @@
     baseDir = options.baseDir || process.cwd();
     src = options.src;
     if (!src) {
-      throw new Error("Coffeescript middleware requires \"src\" directory");
+      throw Snew(Error("Coffeescript middleware requires \"src\" directory"));
     }
     src = path.resolve(baseDir, src);
     dest = (options.dest ? options.dest : src);
