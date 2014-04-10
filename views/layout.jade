@@ -36,23 +36,8 @@ html
       
       .arrow-button
       ul.sub-nav
-        li.sub-nav
-          form.search(method='get', action='http://www.google.com')
-              input.search-input(type='text', name='q', size='21', maxlength='120')
-              input.search-button(type='submit', value='Search')
-        block nav
-          li.sub-nav Tags
-            ul.navi
-              - each tag in getTags()
-                li.tag
-                  a(href=tagURL(tag)) #{tag}
-        li.sub-nav.left Find Me
-          .social-container
-            a.social(href='https://www.twitter.com/')
-              img.social(src='../images/twitter.svg', alt='')
-            a.social(href='https://www.behance.net/stavrogin')
-              img.social(src='../images/behance.svg', alt='')
-        li.sub-nav.left 
+        //li.sub-navform.search(method='get', action='/search')input.search-input(type='text', name='q', size='21', maxlength='120')input.search-button(type='submit', value='Search')
+        li.sub-nav 
             #mc_embed_signup
               form#mc-embedded-subscribe-form.validate(action='http://heroku.us3.list-manage.com/subscribe/post-json?u=e1cf44a59fecbe47cda7b5e61&id=b2b4f9b0fa&c=?', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='novalidate')
                 input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='')
@@ -61,16 +46,29 @@ html
                 div(style='position: absolute; left: -5000px;')
                   input(type='text', name='b_e1cf44a59fecbe47cda7b5e61_b2b4f9b0fa', value='')
               #notification_container
+        block nav
+          li.sub-nav Tags
+            ul.navi
+              - each tag in getTags()
+                li.tag
+                  a(href=tagURL(tag)) #{tag}
+        li.sub-nav.left  Find Me
+          .social-container
+            //a.social(href='https://www.twitter.com/')
+              //img.social(src='../images/twitter.svg', alt='')
+            a.social(href='https://www.behance.net/stavrogin')
+              img.social(src='../images/behance.svg', alt='')
+        
 
+    .header
+      a.design.radio(href='/') RADIO
+      a.design(href='/') SCHIZO
     .wrap
-      .header
-        a.design.radio(href='/') RADIO
-        a.design(href='/') SCHIZO
       .row
         block article
           .top
             img.self(src='../images/self-circle.png', alt='')
-            p.top I am a college student learning web development interested in art, design, music and coding. These are my attempts to put my thoughts into English.
+            p.top I am a college student learning web development interested in art, design, music and coding.
 
           .blog
             block content
@@ -82,8 +80,8 @@ html
       $(function() {
            var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/"));
            $("ul.nav li.nav a.brand").each(function(){
-              if($(this).attr("href") == pgurl || $(this).attr("href") == '' ) {
-                $(this).addClass("current");
+              if($(this).attr("href") == pgurl || $(this).attr("href") == '' || $(this).attr("href") == 'post/') {
+                $(this).addClass("current"); 
               }
               if($(this).attr("href") == pgurl || $(this).attr("href") == '' ) {
                 $(this).addClass("current");
@@ -98,9 +96,9 @@ html
       });
     
       $(window).scroll(function() {
-          var el = $('.header');    
+          var el = $('.bar');    
           var offset = el.offset();  
-          var opacity = ( ((offset.top * 1.5) - el.height() -100) /1000 ) * -2.5;
+          var opacity = ( ((offset.top * .62) - el.height() -100) /1000 ) * -6.5;
           $('.header').css('opacity', opacity );
       });
 

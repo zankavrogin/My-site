@@ -22,8 +22,7 @@
   background: url('../images/mail.svg');
   background-size: 24px 24px;
   background-repeat: no-repeat;
-  background-position-x: 5px;
-  background-position-y: 50%;
+  background-position-y: 5px;
   width: 105px;
   text-align: right;
 }
@@ -74,6 +73,8 @@ left: -5000px;
   padding: 1px 5px;
   background-color: #B83B35;
   box-shadow: 1px 1px 8px black;
+  right: 56px;
+  z-index: 19;
 }
 
 #notification_container .success {
@@ -102,10 +103,11 @@ left: -5000px;
 
 #mc_embed_signup input.email{
   margin: 0;
-  max-width: 215px;
+  max-width: 210px;
   display: inline-block;
   float: none;
   margin-left: 13%;
+  margin-right: 1%;
 }
 
 #mc_embed_signup .button{
@@ -130,5 +132,6 @@ float: none;
 
   #mc_embed_signup input.email{
     width: 25%;
+    margin-right: 5px;
   }
 }
