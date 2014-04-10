@@ -1,6 +1,6 @@
 {{{
     "title" : "Linseed Oil: 'Artist' Grade VS 'Home Depot' Grade",
-    "tags"  : [ "painting" ],
+    "tags"  : [ "painting", "art" ],
     "date" : "2-20-2014",
     "preview"  : "I recently thought to myself while buying a $10 8 oz. bottle of linseed oil, I'm tired of getting ripped off by these pretentious art stores who overcharge you just because they can. I decided to check out the lineseed oil at a hardware store by my house. I was pleasantly surprised when I realized I could get nearly 4 times as much for the same price."
 }}}
